@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OpenResKit.Energy
+﻿namespace OpenResKit.Energy
 {
-    public class Room 
+    public class Room
     {
         public virtual int Id { get; set; }
 
         public virtual Building Building { get; set; }
 
-        public virtual string RoomNumber { get; set;}
+        public virtual string RoomNumber { get; set; }
 
         public virtual int Floor { get; set; } //Etage (0,1,2,...)
 
@@ -23,6 +17,5 @@ namespace OpenResKit.Energy
         public virtual string RoomInformation { get; set; }
 
         public virtual string RoomUsage { get; set; }
-    
     }
 }

@@ -20,6 +20,7 @@ using System.ComponentModel.Composition;
 using System.Data.Entity;
 using System.Reflection;
 using OpenResKit.DomainModel;
+using OpenResKit.Energy.Factory;
 using OpenResKit.Organisation;
 
 namespace OpenResKit.Energy

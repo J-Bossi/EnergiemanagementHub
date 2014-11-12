@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection.Emit;
+﻿using System.Collections.Generic;
 
 namespace OpenResKit.Energy
 {
-    public class Consumer : IMeasurable 
+    public class Consumer : IMeasurable
     {
         public virtual int Id { get; set; }
 
@@ -16,9 +14,9 @@ namespace OpenResKit.Energy
 
         public virtual string InventoryNr { get; set; } //"GER_INV
 
-        public virtual string LocalSerialNr { get; set; }  //"GER_SNR
+        public virtual string LocalSerialNr { get; set; } //"GER_SNR
 
-        public virtual string Manufacturer { get; set; }  //GER_HST
+        public virtual string Manufacturer { get; set; } //GER_HST
 
         public virtual string Identifier { get; set; } //GER_BEZ
 
@@ -35,8 +33,8 @@ namespace OpenResKit.Energy
         public virtual Room Room { get; set; }
 
         public virtual Distributor Distributor { get; set; }
-        
-        
+
+
         public string Name { get; set; }
         public ICollection<Measure> Measures { get; set; }
     }

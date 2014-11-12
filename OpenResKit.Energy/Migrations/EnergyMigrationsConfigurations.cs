@@ -16,12 +16,11 @@
 
 using System.ComponentModel.Composition;
 using System.Data.Entity.Migrations;
-using System.Data.Entity.Migrations.Design;
 using OpenResKit.DomainModel;
 
 namespace OpenResKit.Energy.Migrations
 {
-    [Export (typeof (DbMigrationsConfiguration))]
+    [Export(typeof (DbMigrationsConfiguration))]
     internal sealed class EnergyMigrationsConfiguration : DbMigrationsConfiguration<DomainModelContext>
     {
         [ImportingConstructor]
@@ -30,13 +29,11 @@ namespace OpenResKit.Energy.Migrations
             AutomaticMigrationsEnabled = true;
             AutomaticMigrationDataLossAllowed = true;
             MigrationsDirectory = @"Migrations";
-     
         }
 
 
         protected override void Seed(DomainModelContext context)
         {
-
         }
     }
 }

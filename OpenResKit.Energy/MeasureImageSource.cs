@@ -16,10 +16,10 @@
 
 namespace OpenResKit.Energy
 {
-  public class MeasureImageSource
-  {
-    public virtual int Id { get; set; }
+    public class MeasureImageSource
+    {
+        public virtual int Id { get; set; }
 
-    public virtual byte[] BinarySource { get; set; }
-  }
+        public virtual byte[] BinarySource { get; set; }
+    }
 }

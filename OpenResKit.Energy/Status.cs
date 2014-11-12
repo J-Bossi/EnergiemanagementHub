@@ -16,10 +16,10 @@
 
 namespace OpenResKit.Energy
 {
-  public enum Status
-  {
-    Angelegt = 0,
-    Laufend = 1,
-    Abgeschlossen = 2
-  }
+    public enum Status
+    {
+        Angelegt = 0,
+        Laufend = 1,
+        Abgeschlossen = 2
+    }
 }

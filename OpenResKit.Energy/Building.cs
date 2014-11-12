@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OpenResKit.Energy
+﻿namespace OpenResKit.Energy
 {
-    public class Building 
+    public class Building
     {
         public virtual int Id { get; set; }
 

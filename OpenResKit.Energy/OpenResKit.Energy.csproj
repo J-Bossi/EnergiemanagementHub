@@ -95,12 +95,12 @@
     <Compile Include="DBConnector.cs" />
     <Compile Include="Distributor.cs" />
     <Compile Include="Factory\ConsumerFactory.cs" />
+    <Compile Include="Factory\ModelFactory.cs" />
     <Compile Include="InitialSeed.cs" />
     <Compile Include="IMeasurable.cs" />
     <Compile Include="Measure.cs" />
     <Compile Include="MeasureImageSource.cs" />
     <Compile Include="Migrations\EnergyMigrationsConfigurations.cs" />
-    <Compile Include="ModelFactory.cs" />
     <Compile Include="NovaGrabber.cs" />
     <Compile Include="Priority.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

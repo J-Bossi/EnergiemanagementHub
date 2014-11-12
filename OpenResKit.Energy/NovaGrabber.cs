@@ -47,11 +47,12 @@ namespace OpenResKit.Energy
                         Consumer machine = collection.SingleOrDefault(c => c.Localid == (int) myRow["GERAETE_GER_ID"]);
                         if (machine != null)
                         {
-
-                          
-                            
-                            machine.PowerCurrent = myRow["GERAETE_EIG_AMPERE"] == DBNull.Value ? 0 : Convert.ToInt64(myRow["GERAETE_EIG_AMPERE"]);
-                            machine.PowerOutput = myRow["GERAETE_EIG_KW"] == DBNull.Value ? 0 : Convert.ToInt64( myRow["GERAETE_EIG_KW"]);
+                            machine.PowerCurrent = myRow["GERAETE_EIG_AMPERE"] == DBNull.Value
+                                ? 0
+                                : Convert.ToInt64(myRow["GERAETE_EIG_AMPERE"]);
+                            machine.PowerOutput = myRow["GERAETE_EIG_KW"] == DBNull.Value
+                                ? 0
+                                : Convert.ToInt64(myRow["GERAETE_EIG_KW"]);
                         }
                     }
                 }

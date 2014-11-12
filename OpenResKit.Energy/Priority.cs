@@ -16,10 +16,10 @@
 
 namespace OpenResKit.Energy
 {
-  public enum Priority
-  {
-    Niedrig = 0,
-    Mittel = 1,
-    Hoch = 2
-  }
+    public enum Priority
+    {
+        Niedrig = 0,
+        Mittel = 1,
+        Hoch = 2
+    }
 }

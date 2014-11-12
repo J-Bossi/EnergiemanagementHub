@@ -19,7 +19,7 @@ using System.Collections.Generic;
 using System.IO;
 using OpenResKit.Organisation;
 
-namespace OpenResKit.Energy
+namespace OpenResKit.Energy.Factory
 {
     internal static class ModelFactory
     {
