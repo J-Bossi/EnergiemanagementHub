@@ -21,50 +21,61 @@ using OpenResKit.Organisation;
 
 namespace OpenResKit.Energy
 {
-  internal static class ModelFactory
-  {
-    public static Measure CreateMeasure(string name, string description, string evaluation, DateTime? entryDate, DateTime dueDate, ResponsibleSubject responsibleSubject, int status, int priority,
-      DateTime creationDate, double rating, MeasureImageSource imageSource = null, ICollection<Document> attachedDocuments = null)
+    internal static class ModelFactory
     {
-      return new Measure
-             {
-               Name = name,
-               Description = description,
-               Evaluation = evaluation,
-               EntryDate = entryDate,
-               DueDate = dueDate,
-               ResponsibleSubject = responsibleSubject,
-               Status = status,
-               Priority = priority,
-               CreationDate = creationDate,
-               MeasureImageSource = imageSource,
-               AttachedDocuments = attachedDocuments,
-               EvaluationRating = rating
-             };
-    }
+        public static Measure CreateMeasure(string name, string description, string evaluation, DateTime? entryDate,
+            DateTime dueDate, ResponsibleSubject responsibleSubject, int status, int priority,
+            DateTime creationDate, double rating, MeasureImageSource imageSource = null,
+            ICollection<Document> attachedDocuments = null)
+        {
+            return new Measure
+            {
+                Name = name,
+                Description = description,
+                Evaluation = evaluation,
+                EntryDate = entryDate,
+                DueDate = dueDate,
+                ResponsibleSubject = responsibleSubject,
+                Status = status,
+                Priority = priority,
+                CreationDate = creationDate,
+                MeasureImageSource = imageSource,
+                AttachedDocuments = attachedDocuments,
+                EvaluationRating = rating
+            };
+        }
 
-    public static Catalog CreateCatalog(string name, string description, ICollection<Measure> measures)
-    {
-      return new Catalog
-             {
-               Name = name,
-               Description = description,
-               Measures = measures
-             };
-    }
+        public static Catalog CreateCatalog(string name, string description, ICollection<Measure> measures)
+        {
+            return new Catalog
+            {
+                Name = name,
+                Description = description,
+                Measures = measures
+            };
+        }
 
-    public static MeasureImageSource CreateImage(Stream stream)
-    {
-      byte[] byteArray;
-      using (var br = new BinaryReader(stream))
-      {
-        byteArray = br.ReadBytes((int) stream.Length);
-      }
+        public static MeasureImageSource CreateImage(Stream stream)
+        {
+            byte[] byteArray;
+            using (var br = new BinaryReader(stream))
+            {
+                byteArray = br.ReadBytes((int) stream.Length);
+            }
 
-      return new MeasureImageSource()
-             {
-               BinarySource = byteArray
-             };
+            return new MeasureImageSource
+            {
+                BinarySource = byteArray
+            };
+        }
+
+        public static ConsumerGroup CreateConsumerGroup(string p1, string p2)
+        {
+            return new ConsumerGroup
+            {
+                GroupName = p1,
+                GroupDescription = p2
+            };
+        }
     }
-  }
 }
