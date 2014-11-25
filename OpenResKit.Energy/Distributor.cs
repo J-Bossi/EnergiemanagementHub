@@ -6,6 +6,8 @@ namespace OpenResKit.Energy
     {
         public virtual int Id { get; set; }
 
+        public string Name { get; set; }
+
         public virtual ICollection<Reading> Readings { get; set; }
 
         public bool IsMainDistributor { get; set; }
