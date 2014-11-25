@@ -171,8 +171,20 @@ namespace OpenResKit.Energy
             ConsumerGroup consumerGroupEDV = ModelFactory.CreateConsumerGroup("01 EDV", "PCs, Server");
             ConsumerGroup consumerGroupAnlagen = ModelFactory.CreateConsumerGroup("02 Anlagen", "SGM, Förderbändern");
 
+           
+
             dbContext.Set<ConsumerGroup>().Add(consumerGroupEDV);
             dbContext.Set<ConsumerGroup>().Add(consumerGroupAnlagen);
+
+       
+
+            Distributor distributor = ModelFactory.CreateDistributor("Verteiler1");
+
+            dbContext.Set<Distributor>().Add(distributor);
+
+            Consumer consumer = ModelFactory.CreateConsumer("Verbraucher1",distributor);
+
+            dbContext.Set<Consumer>().Add(consumer);
 
             dbContext.SaveChanges();
         }

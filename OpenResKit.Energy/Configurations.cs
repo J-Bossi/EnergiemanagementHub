@@ -69,7 +69,7 @@ namespace OpenResKit.Energy
         {
             public ConsumerGroupConfiguration()
             {
-                HasMany(cg => cg.Consumers).WithRequired();
+                HasMany(cg => cg.Consumers).WithOptional();
             }
 
             public void AddConfigurationToModel(ConfigurationRegistrar configuration)

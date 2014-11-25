@@ -77,5 +77,22 @@ namespace OpenResKit.Energy.Factory
                 GroupDescription = p2
             };
         }
+
+        public static Consumer CreateConsumer(string p1, Distributor d1)
+        {
+            return new Consumer
+            {
+                Name = p1,
+                Distributor = d1
+            };
+        }
+
+        public static Distributor CreateDistributor(string p1)
+        {
+            return new Distributor
+            {
+                Name = p1
+            };
+        }
     }
 }
