@@ -34,6 +34,7 @@ namespace OpenResKit.Energy
 
         public virtual Distributor Distributor { get; set; }
 
+        public virtual ConsumerGroup ConsumerGroup { get; set; }
 
         public string Name { get; set; }
         public ICollection<Measure> Measures { get; set; }

@@ -78,12 +78,13 @@ namespace OpenResKit.Energy.Factory
             };
         }
 
-        public static Consumer CreateConsumer(string p1, Distributor d1)
+        public static Consumer CreateConsumer(string p1, Distributor d1, ConsumerGroup cg1)
         {
             return new Consumer
             {
                 Name = p1,
-                Distributor = d1
+                Distributor = d1,
+                ConsumerGroup = cg1
             };
         }
 

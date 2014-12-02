@@ -182,7 +182,7 @@ namespace OpenResKit.Energy
 
             dbContext.Set<Distributor>().Add(distributor);
 
-            Consumer consumer = ModelFactory.CreateConsumer("Verbraucher1",distributor);
+            Consumer consumer = ModelFactory.CreateConsumer("Verbraucher1",distributor, consumerGroupAnlagen);
 
             dbContext.Set<Consumer>().Add(consumer);
 

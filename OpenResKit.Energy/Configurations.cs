@@ -56,6 +56,7 @@ namespace OpenResKit.Energy
                 HasOptional(c => c.Room).WithMany().WillCascadeOnDelete(true);
                 HasMany(c => c.Readings).WithOptional().WillCascadeOnDelete(true);
                 HasOptional(c => c.Distributor).WithMany();
+                HasOptional(c => c.ConsumerGroup).WithMany();
             }
 
             public void AddConfigurationToModel(ConfigurationRegistrar configuration)
@@ -69,7 +70,7 @@ namespace OpenResKit.Energy
         {
             public ConsumerGroupConfiguration()
             {
-                HasMany(cg => cg.Consumers).WithOptional();
+                
             }
 
             public void AddConfigurationToModel(ConfigurationRegistrar configuration)
