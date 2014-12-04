@@ -14,7 +14,7 @@
 
 #endregion
 
-namespace OpenResKit.Energy
+namespace OpenResKit.Measure
 {
     public enum Status
     {

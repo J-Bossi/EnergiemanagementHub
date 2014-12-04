@@ -3,9 +3,9 @@ using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
 using Devart.Data.MySql;
-using OpenResKit.Energy.Factory;
+using OpenResKit.Measure.Factory;
 
-namespace OpenResKit.Energy
+namespace OpenResKit.Measure
 {
     public class NovaGrabber
     {

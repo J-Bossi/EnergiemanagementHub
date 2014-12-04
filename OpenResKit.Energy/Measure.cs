@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using OpenResKit.Organisation;
 
-namespace OpenResKit.Energy
+namespace OpenResKit.Measure
 {
     public class Measure
     {

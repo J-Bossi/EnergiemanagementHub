@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace OpenResKit.Energy
+namespace OpenResKit.Measure
 {
     public class ConsumerGroup : IMeasurable
     {

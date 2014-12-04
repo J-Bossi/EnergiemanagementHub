@@ -20,10 +20,10 @@ using System.ComponentModel.Composition;
 using System.Data.Entity;
 using System.Reflection;
 using OpenResKit.DomainModel;
-using OpenResKit.Energy.Factory;
+using OpenResKit.Measure.Factory;
 using OpenResKit.Organisation;
 
-namespace OpenResKit.Energy
+namespace OpenResKit.Measure
 {
     [Export(typeof (IInitialSeed))]
     internal class InitialSeed : IInitialSeed
@@ -171,18 +171,16 @@ namespace OpenResKit.Energy
             ConsumerGroup consumerGroupEDV = ModelFactory.CreateConsumerGroup("01 EDV", "PCs, Server");
             ConsumerGroup consumerGroupAnlagen = ModelFactory.CreateConsumerGroup("02 Anlagen", "SGM, Förderbändern");
 
-           
 
             dbContext.Set<ConsumerGroup>().Add(consumerGroupEDV);
             dbContext.Set<ConsumerGroup>().Add(consumerGroupAnlagen);
 
-       
 
             Distributor distributor = ModelFactory.CreateDistributor("Verteiler1");
 
             dbContext.Set<Distributor>().Add(distributor);
 
-            Consumer consumer = ModelFactory.CreateConsumer("Verbraucher1",distributor, consumerGroupAnlagen);
+            Consumer consumer = ModelFactory.CreateConsumer("Verbraucher1", distributor, consumerGroupAnlagen);
 
             dbContext.Set<Consumer>().Add(consumer);
 

@@ -3,7 +3,7 @@ using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Configuration;
 using OpenResKit.DomainModel;
 
-namespace OpenResKit.Energy
+namespace OpenResKit.Measure
 {
     [Export(typeof (IDomainEntityConfiguration))]
     public class MeasureConfigurations : EntityTypeConfiguration<Measure>, IDomainEntityConfiguration
@@ -68,11 +68,6 @@ namespace OpenResKit.Energy
         [Export(typeof (IDomainEntityConfiguration))]
         public class ConsumerGroupConfiguration : EntityTypeConfiguration<ConsumerGroup>, IDomainEntityConfiguration
         {
-            public ConsumerGroupConfiguration()
-            {
-                
-            }
-
             public void AddConfigurationToModel(ConfigurationRegistrar configuration)
             {
                 configuration.Add(this);

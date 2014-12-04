@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 
-namespace OpenResKit.Energy.Factory
+namespace OpenResKit.Measure.Factory
 {
     public class ConsumerFactory
     {

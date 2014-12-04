@@ -7,8 +7,8 @@
     <ProjectGuid>{142D6F71-D6AF-494E-B3C7-7FB598A86967}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OpenResKit.Energy</RootNamespace>
-    <AssemblyName>OpenResKit.Energy</AssemblyName>
+    <RootNamespace>OpenResKit.Measure</RootNamespace>
+    <AssemblyName>OpenResKit.Measure</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
