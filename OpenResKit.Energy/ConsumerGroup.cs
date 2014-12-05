@@ -10,6 +10,6 @@ namespace OpenResKit.Energy
         public virtual string GroupDescription { get; set; }
 
         public string Name { get; set; }
-        public ICollection<Measure> Measures { get; set; }
+        public ICollection<EnergyMeasure> Measures { get; set; }
     }
 }

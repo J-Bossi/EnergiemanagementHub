@@ -9,6 +9,6 @@ namespace OpenResKit.Energy
         public virtual bool IsCompleted { get; set; } // Untermaßnahme abgeschlossen ja/nein
         public virtual ResponsibleSubject ResponsibleSubject { get; set; }
         // Verantwortlicher Mitarbeiter für entsprechende Untermaßnahme
-        public virtual Measure ReleatedMeasure { get; set; } // Maßnahmenzugehörigkeit
+        public virtual EnergyMeasure ReleatedMeasure { get; set; } // Maßnahmenzugehörigkeit
     }
 }

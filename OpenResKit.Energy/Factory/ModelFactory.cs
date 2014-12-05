@@ -17,18 +17,19 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using OpenResKit.Measure;
 using OpenResKit.Organisation;
 
 namespace OpenResKit.Energy.Factory
 {
     internal static class ModelFactory
     {
-        public static Measure CreateMeasure(string name, string description, string evaluation, DateTime? entryDate,
+        public static EnergyMeasure CreateMeasure(string name, string description, string evaluation, DateTime? entryDate,
             DateTime dueDate, ResponsibleSubject responsibleSubject, int status, int priority,
             DateTime creationDate, double rating, MeasureImageSource imageSource = null,
             ICollection<Document> attachedDocuments = null)
         {
-            return new Measure
+            return new EnergyMeasure
             {
                 Name = name,
                 Description = description,
@@ -45,7 +46,7 @@ namespace OpenResKit.Energy.Factory
             };
         }
 
-        public static Catalog CreateCatalog(string name, string description, ICollection<Measure> measures)
+        public static Catalog CreateCatalog(string name, string description, ICollection<EnergyMeasure> measures)
         {
             return new Catalog
             {

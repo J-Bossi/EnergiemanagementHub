@@ -6,7 +6,7 @@ using OpenResKit.DomainModel;
 namespace OpenResKit.Energy
 {
     [Export(typeof (IDomainEntityConfiguration))]
-    public class MeasureConfigurations : EntityTypeConfiguration<Measure>, IDomainEntityConfiguration
+    public class MeasureConfigurations : EntityTypeConfiguration<EnergyMeasure>, IDomainEntityConfiguration
     {
         public MeasureConfigurations()
         {
@@ -89,15 +89,7 @@ namespace OpenResKit.Energy
             }
         }
 
-        [Export(typeof (IDomainEntityConfiguration))]
-        public class MeasureImageSourceConfigurations : EntityTypeConfiguration<MeasureImageSource>,
-            IDomainEntityConfiguration
-        {
-            public void AddConfigurationToModel(ConfigurationRegistrar configurations)
-            {
-                configurations.Add(this);
-            }
-        }
+
 
         [Export(typeof (IDomainEntityConfiguration))]
         public class ReadingConfiguration : EntityTypeConfiguration<Reading>, IDomainEntityConfiguration

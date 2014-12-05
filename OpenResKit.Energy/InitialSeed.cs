@@ -20,8 +20,9 @@ using System.ComponentModel.Composition;
 using System.Data.Entity;
 using System.Reflection;
 using OpenResKit.DomainModel;
-using OpenResKit.Measure.Factory;
+using OpenResKit.Measure;
 using OpenResKit.Organisation;
+
 
 namespace OpenResKit.Energy
 {
@@ -55,8 +56,8 @@ namespace OpenResKit.Energy
 
             DateTime creationDate = DateTime.Now;
 
-            var measureCollection1 = new Collection<Measure>();
-            var measureCollection2 = new Collection<Measure>();
+            var measureCollection1 = new Collection<EnergyMeasure>();
+            var measureCollection2 = new Collection<EnergyMeasure>();
 
             for (int i = 0; i < 10; i++)
             {
@@ -73,10 +74,10 @@ namespace OpenResKit.Energy
                 int status = 2;
                 double rating = 0.8;
                 int priority = 0;
-                MeasureImageSource imageSource =
-                    ModelFactory.CreateImage(
+                var imageSource =
+                    Factory.ModelFactory.CreateImage(
                         assembly.GetManifestResourceStream("OpenResKit.Energy.Resources.dummyImage1.jpg"));
-                Measure measure = ModelFactory.CreateMeasure(measureName, description, evaluationText, entryDate,
+                var measure = Factory.ModelFactory.CreateMeasure(measureName, description, evaluationText, entryDate,
                     dueDate, responsibleSubject1, status, priority, creationDate, rating, imageSource,
                     new Collection<Document>
                     {
@@ -102,9 +103,9 @@ namespace OpenResKit.Energy
                 double ratig = 0.0;
                 int priority = 1;
                 MeasureImageSource imageSource =
-                    ModelFactory.CreateImage(
+                    Factory.ModelFactory.CreateImage(
                         assembly.GetManifestResourceStream("OpenResKit.Energy.Resources.dummyImage2.jpg"));
-                Measure measure = ModelFactory.CreateMeasure(measureName, description, evaluationText, entryDate,
+                var measure = Factory.ModelFactory.CreateMeasure(measureName, description, evaluationText, entryDate,
                     dueDate, responsibleSubject1, status, priority, creationDate, ratig, imageSource,
                     new Collection<Document>
                     {
@@ -128,7 +129,7 @@ namespace OpenResKit.Energy
                 MeasureImageSource imageSource =
                     ModelFactory.CreateImage(
                         assembly.GetManifestResourceStream("OpenResKit.Energy.Resources.dummyImage3.jpg"));
-                Measure measure = ModelFactory.CreateMeasure(measureName, description, evaluationText, entryDate,
+                var measure = Factory.ModelFactory.CreateMeasure(measureName, description, evaluationText, entryDate,
                     dueDate, responsibleSubject1, status, priority, creationDate, rating, imageSource, null);
                 measureCollection2.Add(measure);
             }
@@ -144,13 +145,13 @@ namespace OpenResKit.Energy
                 int status = 2;
                 double rating = 0.4;
                 int priority = 2;
-                Measure measure = ModelFactory.CreateMeasure(measureName, description, evaluationText, entryDate,
+                var measure = Factory.ModelFactory.CreateMeasure(measureName, description, evaluationText, entryDate,
                     dueDate, responsibleSubject1, status, priority, creationDate, rating, null, null);
                 measureCollection2.Add(measure);
             }
 
-            Catalog catalog1 = ModelFactory.CreateCatalog("Katalog 1", "Das ist Katalog 1", measureCollection1);
-            Catalog catalog2 = ModelFactory.CreateCatalog("Katalog 2", "Das ist Katalog 2", measureCollection2);
+            Catalog catalog1 = Factory.ModelFactory.CreateCatalog("Katalog 1", "Das ist Katalog 1", measureCollection1);
+            Catalog catalog2 = Factory.ModelFactory.CreateCatalog("Katalog 2", "Das ist Katalog 2", measureCollection2);
 
 
             dbContext.Set<Catalog>()
@@ -168,19 +169,19 @@ namespace OpenResKit.Energy
 
             dbContext.Set<SubMeasure>().Add(subMeasure);
 
-            ConsumerGroup consumerGroupEDV = ModelFactory.CreateConsumerGroup("01 EDV", "PCs, Server");
-            ConsumerGroup consumerGroupAnlagen = ModelFactory.CreateConsumerGroup("02 Anlagen", "SGM, Förderbändern");
+            ConsumerGroup consumerGroupEDV = Factory.ModelFactory.CreateConsumerGroup("01 EDV", "PCs, Server");
+            ConsumerGroup consumerGroupAnlagen = Factory.ModelFactory.CreateConsumerGroup("02 Anlagen", "SGM, Förderbändern");
 
 
             dbContext.Set<ConsumerGroup>().Add(consumerGroupEDV);
             dbContext.Set<ConsumerGroup>().Add(consumerGroupAnlagen);
 
 
-            Distributor distributor = ModelFactory.CreateDistributor("Verteiler1");
+            Distributor distributor = Factory.ModelFactory.CreateDistributor("Verteiler1");
 
             dbContext.Set<Distributor>().Add(distributor);
 
-            Consumer consumer = ModelFactory.CreateConsumer("Verbraucher1", distributor, consumerGroupAnlagen);
+            Consumer consumer = Factory.ModelFactory.CreateConsumer("Verbraucher1", distributor, consumerGroupAnlagen);
 
             dbContext.Set<Consumer>().Add(consumer);
 
