@@ -14,7 +14,7 @@
 
 #endregion
 
-namespace OpenResKit.Measure
+namespace OpenResKit.Energy
 {
     public enum Priority
     {

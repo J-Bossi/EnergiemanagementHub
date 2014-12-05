@@ -18,7 +18,7 @@ using System.ComponentModel.Composition;
 using System.Data.Entity.Migrations;
 using OpenResKit.DomainModel;
 
-namespace OpenResKit.Measure.Migrations
+namespace OpenResKit.Energy.Migrations
 {
     [Export(typeof (DbMigrationsConfiguration))]
     internal sealed class EnergyMigrationsConfiguration : DbMigrationsConfiguration<DomainModelContext>
@@ -27,7 +27,7 @@ namespace OpenResKit.Measure.Migrations
         public EnergyMigrationsConfiguration()
         {
             AutomaticMigrationsEnabled = true;
-            //AutomaticMigrationDataLossAllowed = true;
+            AutomaticMigrationDataLossAllowed = true;
             MigrationsDirectory = @"Migrations";
         }
 

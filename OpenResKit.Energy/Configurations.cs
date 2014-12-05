@@ -3,7 +3,7 @@ using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Configuration;
 using OpenResKit.DomainModel;
 
-namespace OpenResKit.Measure
+namespace OpenResKit.Energy
 {
     [Export(typeof (IDomainEntityConfiguration))]
     public class MeasureConfigurations : EntityTypeConfiguration<Measure>, IDomainEntityConfiguration

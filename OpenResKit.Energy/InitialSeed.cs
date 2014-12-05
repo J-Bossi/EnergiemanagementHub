@@ -23,7 +23,7 @@ using OpenResKit.DomainModel;
 using OpenResKit.Measure.Factory;
 using OpenResKit.Organisation;
 
-namespace OpenResKit.Measure
+namespace OpenResKit.Energy
 {
     [Export(typeof (IInitialSeed))]
     internal class InitialSeed : IInitialSeed

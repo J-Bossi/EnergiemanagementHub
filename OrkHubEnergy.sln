@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenResKit.Measure", "OpenResKit.Energy\OpenResKit.Measure.csproj", "{142D6F71-D6AF-494E-B3C7-7FB598A86967}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenResKit.Energy", "OpenResKit.Energy\OpenResKit.Energy.csproj", "{142D6F71-D6AF-494E-B3C7-7FB598A86967}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenResKit.Organisation", "OpenResKit.Organisation\OpenResKit.Organisation.csproj", "{B782D688-DAE4-484A-A2D8-CC556A39F4B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenResKit.Measure", "OpenResKit.Measure\OpenResKit.Measure.csproj", "{11E8500C-651A-4D19-AA0B-6DFADB9AF7C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{B782D688-DAE4-484A-A2D8-CC556A39F4B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B782D688-DAE4-484A-A2D8-CC556A39F4B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B782D688-DAE4-484A-A2D8-CC556A39F4B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11E8500C-651A-4D19-AA0B-6DFADB9AF7C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11E8500C-651A-4D19-AA0B-6DFADB9AF7C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11E8500C-651A-4D19-AA0B-6DFADB9AF7C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11E8500C-651A-4D19-AA0B-6DFADB9AF7C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

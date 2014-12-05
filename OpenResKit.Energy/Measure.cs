@@ -2,23 +2,11 @@
 using System.Collections.Generic;
 using OpenResKit.Organisation;
 
-namespace OpenResKit.Measure
+namespace OpenResKit.Energy
 {
-    public class Measure
+    public class EnergyMeasure : Measure.Measure
     {
-        public virtual int Id { get; set; } // eindeutige ID der Maßnahme
-        public virtual string Name { get; set; } // Name = Name der Aktion
-        public virtual string Description { get; set; } // Beschreibung
-        public virtual string Evaluation { get; set; } // Bewertung
-        public virtual DateTime? EntryDate { get; set; } // erfüllt am ??
-        public virtual DateTime DueDate { get; set; } // geplant am ??
-        public virtual DateTime CreationDate { get; set; } // erstellt am ??
-        public virtual ResponsibleSubject ResponsibleSubject { get; set; } // verantwortlicher Mitarbeiter
-        public virtual int Status { get; set; } // Status (laufend, abgeschlossen ...)
-        public virtual int Priority { get; set; } // Priorität (wenig, mittel, hoch)
-        public virtual MeasureImageSource MeasureImageSource { get; set; } // Bild einer Maßnahme anhängen
-        public virtual ICollection<Document> AttachedDocuments { get; set; } // Dokument einer Maßnahme anhängen
-        public virtual double EvaluationRating { get; set; } // Abschlussbewertung
+      
 
         public virtual string RoomNumber { get; set; } // Raum
         public virtual string Department { get; set; } // Abteilung
@@ -48,28 +36,6 @@ namespace OpenResKit.Measure
 
         public virtual IMeasurable ReferedObject { get; set; }
 
-        internal Status StatusEnum
-        {
-            get { return (Status) Status; }
-            set
-            {
-                if ((Status != (int) value))
-                {
-                    Status = (int) value;
-                }
-            }
-        }
-
-        internal Priority PriorityEnum
-        {
-            get { return (Priority) Priority; }
-            set
-            {
-                if ((Priority != (int) value))
-                {
-                    Priority = (int) value;
-                }
-            }
-        }
+       
     }
 }

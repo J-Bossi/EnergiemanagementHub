@@ -1,6 +1,6 @@
 ﻿using Devart.Data.MySql;
 
-namespace OpenResKit.Measure
+namespace OpenResKit.Energy
 {
     public class DBConnector
 

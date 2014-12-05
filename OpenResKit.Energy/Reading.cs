@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OpenResKit.Measure
+namespace OpenResKit.Energy
 {
     public class Reading
     {

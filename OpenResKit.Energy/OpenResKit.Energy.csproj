@@ -7,8 +7,8 @@
     <ProjectGuid>{142D6F71-D6AF-494E-B3C7-7FB598A86967}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OpenResKit.Measure</RootNamespace>
-    <AssemblyName>OpenResKit.Measure</AssemblyName>
+    <RootNamespace>OpenResKit.Energy</RootNamespace>
+    <AssemblyName>OpenResKit.Energy</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -143,6 +143,10 @@
     <EmbeddedResource Include="Resources\dummyImage3.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\OpenResKit.Measure\OpenResKit.Measure.csproj">
+      <Project>{11e8500c-651a-4d19-aa0b-6dfadb9af7c9}</Project>
+      <Name>OpenResKit.Measure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OpenResKit.Organisation\OpenResKit.Organisation.csproj">
       <Project>{b782d688-dae4-484a-a2d8-cc556a39f4b8}</Project>
       <Name>OpenResKit.Organisation</Name>

@@ -1,4 +1,4 @@
-﻿namespace OpenResKit.Measure
+﻿namespace OpenResKit.Energy
 {
     public class Building
     {

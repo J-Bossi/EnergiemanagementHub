@@ -1,6 +1,6 @@
 ﻿using OpenResKit.Organisation;
 
-namespace OpenResKit.Measure
+namespace OpenResKit.Energy
 {
     public class SubMeasure
     {
