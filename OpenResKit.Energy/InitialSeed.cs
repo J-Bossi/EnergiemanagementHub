@@ -15,6 +15,7 @@
 #endregion
 
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
 using System.Data.Entity;
@@ -56,8 +57,8 @@ namespace OpenResKit.Energy
 
             DateTime creationDate = DateTime.Now;
 
-            var measureCollection1 = new Collection<EnergyMeasure>();
-            var measureCollection2 = new Collection<EnergyMeasure>();
+            var measureCollection1 = new List<EnergyMeasure>();
+            var measureCollection2 = new List<EnergyMeasure>();
 
             for (int i = 0; i < 10; i++)
             {
@@ -150,8 +151,8 @@ namespace OpenResKit.Energy
                 measureCollection2.Add(measure);
             }
 
-            Catalog catalog1 = Factory.ModelFactory.CreateCatalog("Katalog 1", "Das ist Katalog 1", measureCollection1);
-            Catalog catalog2 = Factory.ModelFactory.CreateCatalog("Katalog 2", "Das ist Katalog 2", measureCollection2);
+            Catalog catalog1 = ModelFactory.CreateCatalog("Katalog 1", "Das ist Katalog 1", measureCollection1.ToArray());
+            Catalog catalog2 = ModelFactory.CreateCatalog("Katalog 2", "Das ist Katalog 2", measureCollection2.ToArray());
 
 
             dbContext.Set<Catalog>()

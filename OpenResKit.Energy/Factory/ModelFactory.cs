@@ -16,6 +16,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using OpenResKit.Measure;
 using OpenResKit.Organisation;
@@ -46,15 +47,7 @@ namespace OpenResKit.Energy.Factory
             };
         }
 
-        public static Catalog CreateCatalog(string name, string description, ICollection<EnergyMeasure> measures)
-        {
-            return new Catalog
-            {
-                Name = name,
-                Description = description,
-                Measures = measures
-            };
-        }
+        
 
         public static MeasureImageSource CreateImage(Stream stream)
         {

@@ -27,7 +27,7 @@ namespace OpenResKit.Energy.Migrations
         public EnergyMigrationsConfiguration()
         {
             AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
+            //AutomaticMigrationDataLossAllowed = true;
             MigrationsDirectory = @"Migrations";
         }
 

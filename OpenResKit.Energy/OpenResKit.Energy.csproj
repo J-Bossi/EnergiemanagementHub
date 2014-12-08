@@ -88,7 +88,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Building.cs" />
-    <Compile Include="Catalog.cs" />
     <Compile Include="Configurations.cs" />
     <Compile Include="Consumer.cs" />
     <Compile Include="ConsumerGroup.cs" />
@@ -141,6 +140,16 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OpenResKit.Measure\OpenResKit.Measure.csproj">
+      <Project>{11e8500c-651a-4d19-aa0b-6dfadb9af7c9}</Project>
+      <Name>OpenResKit.Measure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenResKit.Organisation\OpenResKit.Organisation.csproj">
+      <Project>{b782d688-dae4-484a-a2d8-cc556a39f4b8}</Project>
+      <Name>OpenResKit.Organisation</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

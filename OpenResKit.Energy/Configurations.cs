@@ -32,21 +32,7 @@ namespace OpenResKit.Energy
             }
         }
 
-        [Export(typeof (IDomainEntityConfiguration))]
-        public class CatalogConfiguration : EntityTypeConfiguration<Catalog>, IDomainEntityConfiguration
-        {
-            public CatalogConfiguration()
-            {
-                HasMany(s => s.Measures)
-                    .WithOptional()
-                    .WillCascadeOnDelete();
-            }
 
-            public void AddConfigurationToModel(ConfigurationRegistrar configurations)
-            {
-                configurations.Add(this);
-            }
-        }
 
         [Export(typeof (IDomainEntityConfiguration))]
         public class ConsumerConfiguration : EntityTypeConfiguration<Consumer>, IDomainEntityConfiguration
