@@ -10,7 +10,7 @@
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //  
-// Copyright (c) 2013, HTW Berlin
+// Copyright (c) 2014, Johannes Boß - HTW Berlin
 
 #endregion
 
@@ -20,20 +20,16 @@ using OpenResKit.DomainModel;
 
 namespace OpenResKit.Energy.Migrations
 {
-    [Export(typeof (DbMigrationsConfiguration))]
-    internal sealed class EnergyMigrationsConfiguration : DbMigrationsConfiguration<DomainModelContext>
+  [Export(typeof (DbMigrationsConfiguration))]
+  internal sealed class EnergyMigrationsConfiguration : DbMigrationsConfiguration<DomainModelContext>
+  {
+    [ImportingConstructor]
+    public EnergyMigrationsConfiguration()
     {
-        [ImportingConstructor]
-        public EnergyMigrationsConfiguration()
-        {
-            AutomaticMigrationsEnabled = true;
-            //AutomaticMigrationDataLossAllowed = true;
-            MigrationsDirectory = @"Migrations";
-        }
-
-
-        protected override void Seed(DomainModelContext context)
-        {
-        }
+      AutomaticMigrationsEnabled = true;
+      //AutomaticMigrationDataLossAllowed = true;
     }
+
+    protected override void Seed(DomainModelContext context) {}
+  }
 }

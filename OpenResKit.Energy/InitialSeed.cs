@@ -10,7 +10,7 @@
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //  
-// Copyright (c) 2013, HTW Berlin
+// Copyright (c) 2014, Johannes Boß - HTW Berlin
 
 #endregion
 
@@ -23,170 +23,164 @@ using System.Reflection;
 using OpenResKit.DomainModel;
 using OpenResKit.Measure;
 using OpenResKit.Organisation;
-
+using ModelFactory = OpenResKit.Energy.Factory.ModelFactory;
 
 namespace OpenResKit.Energy
 {
-    [Export(typeof (IInitialSeed))]
-    internal class InitialSeed : IInitialSeed
+  [Export(typeof (IInitialSeed))]
+  internal class InitialSeed : IInitialSeed
+  {
+    public void Seed(DbContext dbContext)
     {
-        public void Seed(DbContext dbContext)
-        {
-            //var grabber = new NovaGrabber();
+      //var grabber = new NovaGrabber();
 
-            //foreach (Machine machine in grabber.getData())
-            //{
-            //    dbContext.Set<Machine>().AddOrUpdate(machine);
-            //}
+      //foreach (Machine machine in grabber.getData())
+      //{
+      //    dbContext.Set<Machine>().AddOrUpdate(machine);
+      //}
 
+      Employee responsibleSubject1 = ResponsibleSubjectModelFactory.CreateEmployee("Hans", "Müller");
+      Employee responsibleSubject2 = ResponsibleSubjectModelFactory.CreateEmployee("Gabi", "Becker");
+      EmployeeGroup responsibleGroup = ResponsibleSubjectModelFactory.CreateGroup("Praktikanten");
 
-            Employee responsibleSubject1 = ResponsibleSubjectModelFactory.CreateEmployee("Hans", "Müller");
-            Employee responsibleSubject2 = ResponsibleSubjectModelFactory.CreateEmployee("Gabi", "Becker");
-            EmployeeGroup responsibleGroup = ResponsibleSubjectModelFactory.CreateGroup("Praktikanten");
+      dbContext.Set<EmployeeGroup>()
+               .Add(responsibleGroup);
 
-            dbContext.Set<EmployeeGroup>()
-                .Add(responsibleGroup);
+      dbContext.Set<Employee>()
+               .Add(responsibleSubject1);
 
-            dbContext.Set<Employee>()
-                .Add(responsibleSubject1);
+      dbContext.Set<Employee>()
+               .Add(responsibleSubject2);
 
-            dbContext.Set<Employee>()
-                .Add(responsibleSubject2);
+      Assembly assembly = Assembly.GetExecutingAssembly();
 
-            Assembly assembly = Assembly.GetExecutingAssembly();
+      DateTime creationDate = DateTime.Now;
 
-            DateTime creationDate = DateTime.Now;
+      var measureCollection1 = new List<EnergyMeasure>();
+      var measureCollection2 = new List<EnergyMeasure>();
 
-            var measureCollection1 = new List<EnergyMeasure>();
-            var measureCollection2 = new List<EnergyMeasure>();
+      for (int i = 0; i < 10; i++)
+      {
+        Document word = DocumentModelFactory.CreateDocument("doc1.docx",
+          assembly.GetManifestResourceStream("OpenResKit.Energy.Resources.dummyword.docx"));
+        Document pdf = DocumentModelFactory.CreateDocument("pdf1.pdf",
+          assembly.GetManifestResourceStream("OpenResKit.Energy.Resources.dummypdf.pdf"));
 
-            for (int i = 0; i < 10; i++)
-            {
-                Document word = DocumentModelFactory.CreateDocument("doc1.docx",
-                    assembly.GetManifestResourceStream("OpenResKit.Energy.Resources.dummyword.docx"));
-                Document pdf = DocumentModelFactory.CreateDocument("pdf1.pdf",
-                    assembly.GetManifestResourceStream("OpenResKit.Energy.Resources.dummypdf.pdf"));
+        string measureName = "Container leeren";
+        string description = "Der Container ist voll";
+        string evaluationText = "Das Leeren hat funktioniert";
+        DateTime entryDate = DateTime.Now.AddDays(-i * 7 - 1);
+        DateTime dueDate = DateTime.Now.AddDays(-i * 7);
+        int status = 2;
+        double rating = 0.8;
+        int priority = 0;
+        var imageSource =
+          ModelFactory.CreateImage(assembly.GetManifestResourceStream("OpenResKit.Energy.Resources.dummyImage1.jpg"));
+        var measure = ModelFactory.CreateMeasure(measureName, description, evaluationText, entryDate, dueDate,
+          responsibleSubject1, status, priority, creationDate, rating, imageSource, new Collection<Document>
+          {
+            word,
+            pdf
+          });
+        measureCollection1.Add(measure);
+      }
 
-                string measureName = "Container leeren";
-                string description = "Der Container ist voll";
-                string evaluationText = "Das Leeren hat funktioniert";
-                DateTime entryDate = DateTime.Now.AddDays(-i*7 - 1);
-                DateTime dueDate = DateTime.Now.AddDays(-i*7);
-                int status = 2;
-                double rating = 0.8;
-                int priority = 0;
-                var imageSource =
-                    Factory.ModelFactory.CreateImage(
-                        assembly.GetManifestResourceStream("OpenResKit.Energy.Resources.dummyImage1.jpg"));
-                var measure = Factory.ModelFactory.CreateMeasure(measureName, description, evaluationText, entryDate,
-                    dueDate, responsibleSubject1, status, priority, creationDate, rating, imageSource,
-                    new Collection<Document>
-                    {
-                        word,
-                        pdf
-                    });
-                measureCollection1.Add(measure);
-            }
+      for (int i = 5; i < 10; i++)
+      {
+        Document word = DocumentModelFactory.CreateDocument("doc1.docx",
+          assembly.GetManifestResourceStream("OpenResKit.Energy.Resources.dummyword.docx"));
+        Document pdf = DocumentModelFactory.CreateDocument("pdf1.pdf",
+          assembly.GetManifestResourceStream("OpenResKit.Energy.Resources.dummypdf.pdf"));
 
-            for (int i = 5; i < 10; i++)
-            {
-                Document word = DocumentModelFactory.CreateDocument("doc1.docx",
-                    assembly.GetManifestResourceStream("OpenResKit.Energy.Resources.dummyword.docx"));
-                Document pdf = DocumentModelFactory.CreateDocument("pdf1.pdf",
-                    assembly.GetManifestResourceStream("OpenResKit.Energy.Resources.dummypdf.pdf"));
+        string measureName = "Container leeren";
+        string description = "Der Container ist voll";
+        DateTime dueDate = DateTime.Now.AddDays(-i * 7);
+        string evaluationText = string.Empty;
+        DateTime? entryDate = null;
+        int status = 0;
+        double ratig = 0.0;
+        int priority = 1;
+        MeasureImageSource imageSource =
+          ModelFactory.CreateImage(assembly.GetManifestResourceStream("OpenResKit.Energy.Resources.dummyImage2.jpg"));
+        var measure = ModelFactory.CreateMeasure(measureName, description, evaluationText, entryDate, dueDate,
+          responsibleSubject1, status, priority, creationDate, ratig, imageSource, new Collection<Document>
+          {
+            word,
+            pdf
+          });
+        measureCollection1.Add(measure);
+      }
 
-                string measureName = "Container leeren";
-                string description = "Der Container ist voll";
-                DateTime dueDate = DateTime.Now.AddDays(-i*7);
-                string evaluationText = string.Empty;
-                DateTime? entryDate = null;
-                int status = 0;
-                double ratig = 0.0;
-                int priority = 1;
-                MeasureImageSource imageSource =
-                    Factory.ModelFactory.CreateImage(
-                        assembly.GetManifestResourceStream("OpenResKit.Energy.Resources.dummyImage2.jpg"));
-                var measure = Factory.ModelFactory.CreateMeasure(measureName, description, evaluationText, entryDate,
-                    dueDate, responsibleSubject1, status, priority, creationDate, ratig, imageSource,
-                    new Collection<Document>
-                    {
-                        word,
-                        pdf
-                    });
-                measureCollection1.Add(measure);
-            }
+      for (int i = 0; i < 5; i++)
+      {
+        string measureName = "Stromzähler ablesen";
+        string description = "Stromzähler befindet sich im Keller";
+        string evaluationText = string.Empty;
+        DateTime? entryDate = null;
+        DateTime dueDate = DateTime.Now.AddDays(-i * 3);
+        int status = 0;
+        double rating = 0.2;
+        int priority = 2;
+        MeasureImageSource imageSource =
+          Measure.ModelFactory.CreateImage(assembly.GetManifestResourceStream("OpenResKit.Energy.Resources.dummyImage3.jpg"));
+        var measure = ModelFactory.CreateMeasure(measureName, description, evaluationText, entryDate, dueDate,
+          responsibleSubject1, status, priority, creationDate, rating, imageSource, null);
+        measureCollection2.Add(measure);
+      }
 
+      for (int i = 5; i < 10; i++)
+      {
+        string measureName = "Stromzähler ablesen";
+        string description = "Stromzähler befindet sich im Keller";
+        string evaluationText = "Das Ablesen war wegen dem ganzen Schmutz kaum möglich";
+        DateTime entryDate = DateTime.Now.AddDays(-i * 30);
+        DateTime dueDate = DateTime.Now.AddDays(-i * 30);
+        int status = 2;
+        double rating = 0.4;
+        int priority = 2;
+        var measure = ModelFactory.CreateMeasure(measureName, description, evaluationText, entryDate, dueDate,
+          responsibleSubject1, status, priority, creationDate, rating, null, null);
+        measureCollection2.Add(measure);
+      }
 
-            for (int i = 0; i < 5; i++)
-            {
-                string measureName = "Stromzähler ablesen";
-                string description = "Stromzähler befindet sich im Keller";
-                string evaluationText = string.Empty;
-                DateTime? entryDate = null;
-                DateTime dueDate = DateTime.Now.AddDays(-i*3);
-                int status = 0;
-                double rating = 0.2;
-                int priority = 2;
-                MeasureImageSource imageSource =
-                    ModelFactory.CreateImage(
-                        assembly.GetManifestResourceStream("OpenResKit.Energy.Resources.dummyImage3.jpg"));
-                var measure = Factory.ModelFactory.CreateMeasure(measureName, description, evaluationText, entryDate,
-                    dueDate, responsibleSubject1, status, priority, creationDate, rating, imageSource, null);
-                measureCollection2.Add(measure);
-            }
+      Catalog catalog1 = Measure.ModelFactory.CreateCatalog("Katalog 1", "Das ist Katalog 1", measureCollection1.ToArray());
+      Catalog catalog2 = Measure.ModelFactory.CreateCatalog("Katalog 2", "Das ist Katalog 2", measureCollection2.ToArray());
 
+      dbContext.Set<Catalog>()
+               .Add(catalog1);
+      dbContext.Set<Catalog>()
+               .Add(catalog2);
 
-            for (int i = 5; i < 10; i++)
-            {
-                string measureName = "Stromzähler ablesen";
-                string description = "Stromzähler befindet sich im Keller";
-                string evaluationText = "Das Ablesen war wegen dem ganzen Schmutz kaum möglich";
-                DateTime entryDate = DateTime.Now.AddDays(-i*30);
-                DateTime dueDate = DateTime.Now.AddDays(-i*30);
-                int status = 2;
-                double rating = 0.4;
-                int priority = 2;
-                var measure = Factory.ModelFactory.CreateMeasure(measureName, description, evaluationText, entryDate,
-                    dueDate, responsibleSubject1, status, priority, creationDate, rating, null, null);
-                measureCollection2.Add(measure);
-            }
+      var subMeasure = new SubMeasure
+      {
+        IsCompleted = false,
+        Name = "Test Untermaßnahme",
+        ReleatedMeasure = measureCollection1[0],
+        ResponsibleSubject = responsibleSubject1
+      };
 
-            Catalog catalog1 = ModelFactory.CreateCatalog("Katalog 1", "Das ist Katalog 1", measureCollection1.ToArray());
-            Catalog catalog2 = ModelFactory.CreateCatalog("Katalog 2", "Das ist Katalog 2", measureCollection2.ToArray());
+      dbContext.Set<SubMeasure>()
+               .Add(subMeasure);
 
+      ConsumerGroup consumerGroupEdv = ModelFactory.CreateConsumerGroup("01 EDV", "PCs, Server");
+      ConsumerGroup consumerGroupAnlagen = ModelFactory.CreateConsumerGroup("02 Anlagen", "SGM, Förderbändern");
 
-            dbContext.Set<Catalog>()
-                .Add(catalog1);
-            dbContext.Set<Catalog>()
-                .Add(catalog2);
+      dbContext.Set<ConsumerGroup>()
+               .Add(consumerGroupEdv);
+      dbContext.Set<ConsumerGroup>()
+               .Add(consumerGroupAnlagen);
 
-            var subMeasure = new SubMeasure
-            {
-                IsCompleted = false,
-                Name = "Test Untermaßnahme",
-                ReleatedMeasure = measureCollection1[0],
-                ResponsibleSubject = responsibleSubject1
-            };
+      Distributor distributor = ModelFactory.CreateDistributor("Verteiler1");
 
-            dbContext.Set<SubMeasure>().Add(subMeasure);
+      dbContext.Set<Distributor>()
+               .Add(distributor);
 
-            ConsumerGroup consumerGroupEDV = Factory.ModelFactory.CreateConsumerGroup("01 EDV", "PCs, Server");
-            ConsumerGroup consumerGroupAnlagen = Factory.ModelFactory.CreateConsumerGroup("02 Anlagen", "SGM, Förderbändern");
+      Consumer consumer = ModelFactory.CreateConsumer("Verbraucher1", distributor, consumerGroupAnlagen);
 
+      dbContext.Set<Consumer>()
+               .Add(consumer);
 
-            dbContext.Set<ConsumerGroup>().Add(consumerGroupEDV);
-            dbContext.Set<ConsumerGroup>().Add(consumerGroupAnlagen);
-
-
-            Distributor distributor = Factory.ModelFactory.CreateDistributor("Verteiler1");
-
-            dbContext.Set<Distributor>().Add(distributor);
-
-            Consumer consumer = Factory.ModelFactory.CreateConsumer("Verbraucher1", distributor, consumerGroupAnlagen);
-
-            dbContext.Set<Consumer>().Add(consumer);
-
-            dbContext.SaveChanges();
-        }
+      dbContext.SaveChanges();
     }
+  }
 }
