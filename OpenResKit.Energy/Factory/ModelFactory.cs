@@ -60,12 +60,12 @@ namespace OpenResKit.Energy.Factory
       };
     }
 
-    public static ConsumerGroup CreateConsumerGroup(string p1, string p2)
+    public static ConsumerGroup CreateConsumerGroup(string p1)
     {
       return new ConsumerGroup
       {
         GroupName = p1,
-        GroupDescription = p2
+      
       };
     }
 

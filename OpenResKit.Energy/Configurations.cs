@@ -63,6 +63,8 @@ namespace OpenResKit.Energy
           .WithMany();
         HasOptional(c => c.ConsumerGroup)
           .WithMany();
+        HasOptional(c => c.ConsumerType)
+          .WithMany();
       }
 
       public void AddConfigurationToModel(ConfigurationRegistrar configuration)
@@ -74,6 +76,12 @@ namespace OpenResKit.Energy
     [Export(typeof (IDomainEntityConfiguration))]
     public class ConsumerGroupConfiguration : EntityTypeConfiguration<ConsumerGroup>, IDomainEntityConfiguration
     {
+      public ConsumerGroupConfiguration()
+      {
+        HasMany(cg => cg.ConsumerTypes)
+          .WithMany();
+      }
+
       public void AddConfigurationToModel(ConfigurationRegistrar configuration)
       {
         configuration.Add(this);

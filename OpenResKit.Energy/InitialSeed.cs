@@ -162,8 +162,8 @@ namespace OpenResKit.Energy
       dbContext.Set<SubMeasure>()
                .Add(subMeasure);
 
-      ConsumerGroup consumerGroupEdv = ModelFactory.CreateConsumerGroup("01 EDV", "PCs, Server");
-      ConsumerGroup consumerGroupAnlagen = ModelFactory.CreateConsumerGroup("02 Anlagen", "SGM, Förderbändern");
+      ConsumerGroup consumerGroupEdv = ModelFactory.CreateConsumerGroup("01 EDV");
+      ConsumerGroup consumerGroupAnlagen = ModelFactory.CreateConsumerGroup("02 Anlagen");
 
       dbContext.Set<ConsumerGroup>()
                .Add(consumerGroupEdv);

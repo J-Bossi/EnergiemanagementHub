@@ -18,7 +18,7 @@ using System.Collections.Generic;
 
 namespace OpenResKit.Energy
 {
-  public class Consumer : IMeasurable
+  public class Consumer
   {
     public virtual int Id { get; set; }
     public virtual int Localid { get; set; } //"GER_ID"
@@ -37,6 +37,6 @@ namespace OpenResKit.Energy
     public virtual Distributor Distributor { get; set; }
     public virtual ConsumerGroup ConsumerGroup { get; set; }
     public string Name { get; set; }
-    public ICollection<EnergyMeasure> Measures { get; set; }
+    public ConsumerType ConsumerType { get; set; }
   }
 }

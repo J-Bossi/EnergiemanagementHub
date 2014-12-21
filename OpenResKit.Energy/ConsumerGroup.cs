@@ -18,12 +18,10 @@ using System.Collections.Generic;
 
 namespace OpenResKit.Energy
 {
-  public class ConsumerGroup : IMeasurable
+  public class ConsumerGroup
   {
     public virtual int Id { get; set; }
     public virtual string GroupName { get; set; }
-    public virtual string GroupDescription { get; set; }
-    public string Name { get; set; }
-    public ICollection<EnergyMeasure> Measures { get; set; }
+    public virtual ICollection<ConsumerType> ConsumerTypes { get; set; }
   }
 }

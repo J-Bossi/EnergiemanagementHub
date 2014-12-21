@@ -14,13 +14,13 @@
 
 #endregion
 
-using System.Collections.Generic;
+using System;
 
 namespace OpenResKit.Energy
 {
-  public interface IMeasurable
+  public class ConsumerType
   {
-    string Name { get; set; }
-    ICollection<EnergyMeasure> Measures { get; set; }
+    public virtual int Id { get; set; }
+    public virtual String TypeName { get; set; }
   }
 }

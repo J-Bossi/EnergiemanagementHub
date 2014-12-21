@@ -63,12 +63,12 @@
     <Compile Include="Configurations.cs" />
     <Compile Include="Consumer.cs" />
     <Compile Include="ConsumerGroup.cs" />
+    <Compile Include="ConsumerType.cs" />
     <Compile Include="DBConnector.cs" />
     <Compile Include="Distributor.cs" />
     <Compile Include="Factory\ConsumerFactory.cs" />
     <Compile Include="Factory\ModelFactory.cs" />
     <Compile Include="InitialSeed.cs" />
-    <Compile Include="IMeasurable.cs" />
     <Compile Include="Measure.cs" />
     <Compile Include="Migrations\EnergyMigrationsConfigurations.cs" />
     <Compile Include="NovaGrabber.cs" />

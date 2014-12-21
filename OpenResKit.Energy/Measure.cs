@@ -40,7 +40,6 @@ namespace OpenResKit.Energy
     // Zeit (GeplanteKosten / GeldEinsparung) bis Maßnahme sich rentiert hat (Amortisationszeit in Tagen)
     public virtual double FailureMoney { get; set; }
     public virtual double ElectricityCosts { get; set; } // Elektrizitätskosten
-    public virtual string Reference { get; set; } // Verweis auf ...
-    public virtual IMeasurable ReferedObject { get; set; }
+    public virtual string Reference { get; set; }
   }
 }
