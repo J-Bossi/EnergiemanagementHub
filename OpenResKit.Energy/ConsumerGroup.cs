@@ -22,6 +22,6 @@ namespace OpenResKit.Energy
   {
     public virtual int Id { get; set; }
     public virtual string GroupName { get; set; }
-    public virtual ICollection<ConsumerType> ConsumerTypes { get; set; }
+    public virtual ICollection<ConsumerType> ConsumerTypes { get; set; } 
   }
 }

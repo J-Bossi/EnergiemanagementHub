@@ -10,7 +10,7 @@
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //  
-// Copyright (c) 2014, Johannes Boß - HTW Berlin
+// Copyright (c) 2015, Johannes Boß - HTW Berlin
 
 #endregion
 
@@ -162,23 +162,63 @@ namespace OpenResKit.Energy
       dbContext.Set<SubMeasure>()
                .Add(subMeasure);
 
+      ConsumerType sgm = new ConsumerType
+      {
+        TypeName = "SGM"
+      };
+      ConsumerType auto = new ConsumerType
+      {
+        TypeName = "Automaten"
+      };
+      ConsumerType pc = new ConsumerType
+      {
+        TypeName = "PCs"
+      };
+      ConsumerType server = new ConsumerType
+      {
+        TypeName = "Server"
+      };
+      dbContext.Set<ConsumerType>()
+               .Add(sgm);
+      dbContext.Set<ConsumerType>()
+               .Add(auto);
+      dbContext.Set<ConsumerType>()
+               .Add(pc);
+      dbContext.Set<ConsumerType>()
+               .Add(server);
+
       ConsumerGroup consumerGroupEdv = ModelFactory.CreateConsumerGroup("01 EDV");
+      consumerGroupEdv.ConsumerTypes.Add(pc);
+      consumerGroupEdv.ConsumerTypes.Add(server);
       ConsumerGroup consumerGroupAnlagen = ModelFactory.CreateConsumerGroup("02 Anlagen");
+      consumerGroupAnlagen.ConsumerTypes.Add(auto);
+      consumerGroupAnlagen.ConsumerTypes.Add(sgm);
+     
 
       dbContext.Set<ConsumerGroup>()
                .Add(consumerGroupEdv);
       dbContext.Set<ConsumerGroup>()
                .Add(consumerGroupAnlagen);
+      dbContext.SaveChanges();
 
-      Distributor distributor = ModelFactory.CreateDistributor("Verteiler1");
+      Distributor distributorvi = ModelFactory.CreateDistributor("Verteiler Villa");
+      Distributor distributorA = ModelFactory.CreateDistributor("Verteiler Gebäude A");
 
       dbContext.Set<Distributor>()
-               .Add(distributor);
+               .Add(distributorvi);
+      dbContext.Set<Distributor>()
+               .Add(distributorA);
 
-      Consumer consumer = ModelFactory.CreateConsumer("Verbraucher1", distributor, consumerGroupAnlagen);
+      Consumer auto1 = ModelFactory.CreateConsumer("Automat1", distributorA, consumerGroupAnlagen, auto);
+      Consumer auto2 = ModelFactory.CreateConsumer("Automat1", distributorA, consumerGroupAnlagen, auto);
+      Consumer sgm1 = ModelFactory.CreateConsumer("Spritzgußmaschine 1", distributorA, consumerGroupAnlagen, sgm);
 
       dbContext.Set<Consumer>()
-               .Add(consumer);
+               .Add(auto1);
+      dbContext.Set<Consumer>()
+               .Add(auto2);
+      dbContext.Set<Consumer>()
+               .Add(sgm1);
 
       dbContext.SaveChanges();
     }

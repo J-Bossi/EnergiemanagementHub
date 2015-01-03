@@ -36,7 +36,7 @@ namespace OpenResKit.Energy
     public virtual Room Room { get; set; }
     public virtual Distributor Distributor { get; set; }
     public virtual ConsumerGroup ConsumerGroup { get; set; }
-    public string Name { get; set; }
-    public ConsumerType ConsumerType { get; set; }
+    public virtual string Name { get; set; }
+    public virtual ConsumerType ConsumerType { get; set; }
   }
 }

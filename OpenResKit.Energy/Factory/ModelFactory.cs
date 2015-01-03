@@ -65,17 +65,18 @@ namespace OpenResKit.Energy.Factory
       return new ConsumerGroup
       {
         GroupName = p1,
-      
+        ConsumerTypes = new List<ConsumerType>()
       };
     }
 
-    public static Consumer CreateConsumer(string p1, Distributor d1, ConsumerGroup cg1)
+    public static Consumer CreateConsumer(string p1, Distributor d1, ConsumerGroup cg1, ConsumerType ct1)
     {
       return new Consumer
       {
         Name = p1,
         Distributor = d1,
-        ConsumerGroup = cg1
+        ConsumerGroup = cg1,
+        ConsumerType = ct1
       };
     }
 

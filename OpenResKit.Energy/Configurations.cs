@@ -10,7 +10,7 @@
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //  
-// Copyright (c) 2014, Johannes Boß - HTW Berlin
+// Copyright (c) 2015, Johannes Boß - HTW Berlin
 
 #endregion
 
@@ -38,109 +38,119 @@ namespace OpenResKit.Energy
     {
       configurations.Add(this);
     }
+  }
 
-    [Export(typeof (IDomainEntityConfiguration))]
-    public class BuildingConfiguration : EntityTypeConfiguration<Building>, IDomainEntityConfiguration
+  [Export(typeof (IDomainEntityConfiguration))]
+  public class BuildingConfiguration : EntityTypeConfiguration<Building>, IDomainEntityConfiguration
+  {
+    public void AddConfigurationToModel(ConfigurationRegistrar configuration)
     {
-      public void AddConfigurationToModel(ConfigurationRegistrar configuration)
-      {
-        configuration.Add(this);
-      }
+      configuration.Add(this);
+    }
+  }
+
+  [Export(typeof (IDomainEntityConfiguration))]
+  public class ConsumerConfiguration : EntityTypeConfiguration<Consumer>, IDomainEntityConfiguration
+  {
+    public ConsumerConfiguration()
+    {
+      HasOptional(c => c.Room)
+        .WithMany()
+        .WillCascadeOnDelete(true);
+      HasMany(c => c.Readings)
+        .WithOptional()
+        .WillCascadeOnDelete(true);
+      HasOptional(c => c.Distributor)
+        .WithMany();
+      HasOptional(c => c.ConsumerGroup)
+        .WithMany();
+      HasOptional(c => c.ConsumerType)
+        .WithMany();
     }
 
-    [Export(typeof (IDomainEntityConfiguration))]
-    public class ConsumerConfiguration : EntityTypeConfiguration<Consumer>, IDomainEntityConfiguration
+    public void AddConfigurationToModel(ConfigurationRegistrar configuration)
     {
-      public ConsumerConfiguration()
-      {
-        HasOptional(c => c.Room)
-          .WithMany()
-          .WillCascadeOnDelete(true);
-        HasMany(c => c.Readings)
-          .WithOptional()
-          .WillCascadeOnDelete(true);
-        HasOptional(c => c.Distributor)
-          .WithMany();
-        HasOptional(c => c.ConsumerGroup)
-          .WithMany();
-        HasOptional(c => c.ConsumerType)
-          .WithMany();
-      }
+      configuration.Add(this);
+    }
+  }
 
-      public void AddConfigurationToModel(ConfigurationRegistrar configuration)
-      {
-        configuration.Add(this);
-      }
+  [Export(typeof (IDomainEntityConfiguration))]
+  public class ConsumerGroupConfiguration : EntityTypeConfiguration<ConsumerGroup>, IDomainEntityConfiguration
+  {
+    public ConsumerGroupConfiguration()
+    {
+      HasMany(cg => cg.ConsumerTypes)
+        .WithRequired()
+        .WillCascadeOnDelete(true);
     }
 
-    [Export(typeof (IDomainEntityConfiguration))]
-    public class ConsumerGroupConfiguration : EntityTypeConfiguration<ConsumerGroup>, IDomainEntityConfiguration
+    public void AddConfigurationToModel(ConfigurationRegistrar configuration)
     {
-      public ConsumerGroupConfiguration()
-      {
-        HasMany(cg => cg.ConsumerTypes)
-          .WithMany();
-      }
+      configuration.Add(this);
+    }
+  }
 
-      public void AddConfigurationToModel(ConfigurationRegistrar configuration)
-      {
-        configuration.Add(this);
-      }
+  [Export(typeof (IDomainEntityConfiguration))]
+  public class DistributorConfiguration : EntityTypeConfiguration<Distributor>, IDomainEntityConfiguration
+  {
+    public DistributorConfiguration()
+    {
+      HasMany(d => d.Readings)
+        .WithOptional()
+        .WillCascadeOnDelete(true);
     }
 
-    [Export(typeof (IDomainEntityConfiguration))]
-    public class DistributorConfiguration : EntityTypeConfiguration<Distributor>, IDomainEntityConfiguration
+    public void AddConfigurationToModel(ConfigurationRegistrar configuration)
     {
-      public DistributorConfiguration()
-      {
-        HasMany(d => d.Readings)
-          .WithOptional()
-          .WillCascadeOnDelete(true);
-      }
+      configuration.Add(this);
+    }
+  }
 
-      public void AddConfigurationToModel(ConfigurationRegistrar configuration)
-      {
-        configuration.Add(this);
-      }
+  [Export(typeof (IDomainEntityConfiguration))]
+  public class ReadingConfiguration : EntityTypeConfiguration<Reading>, IDomainEntityConfiguration
+  {
+    public void AddConfigurationToModel(ConfigurationRegistrar configuration)
+    {
+      configuration.Add(this);
+    }
+  }
+
+  [Export(typeof (IDomainEntityConfiguration))]
+  public class RoomConfiguration : EntityTypeConfiguration<Room>, IDomainEntityConfiguration
+  {
+    public RoomConfiguration()
+    {
+      HasRequired(r => r.Building)
+        .WithMany()
+        .WillCascadeOnDelete(true);
     }
 
-    [Export(typeof (IDomainEntityConfiguration))]
-    public class ReadingConfiguration : EntityTypeConfiguration<Reading>, IDomainEntityConfiguration
+    public void AddConfigurationToModel(ConfigurationRegistrar configuration)
     {
-      public void AddConfigurationToModel(ConfigurationRegistrar configuration)
-      {
-        configuration.Add(this);
-      }
+      configuration.Add(this);
+    }
+  }
+
+  [Export(typeof (IDomainEntityConfiguration))]
+  public class SubMeasureConfigurations : EntityTypeConfiguration<SubMeasure>, IDomainEntityConfiguration
+  {
+    public SubMeasureConfigurations()
+    {
+      HasOptional(s => s.ReleatedMeasure);
     }
 
-    [Export(typeof (IDomainEntityConfiguration))]
-    public class RoomConfiguration : EntityTypeConfiguration<Room>, IDomainEntityConfiguration
+    public void AddConfigurationToModel(ConfigurationRegistrar configurations)
     {
-      public RoomConfiguration()
-      {
-        HasRequired(r => r.Building)
-          .WithMany()
-          .WillCascadeOnDelete(true);
-      }
-
-      public void AddConfigurationToModel(ConfigurationRegistrar configuration)
-      {
-        configuration.Add(this);
-      }
+      configurations.Add(this);
     }
+  }
 
-    [Export(typeof (IDomainEntityConfiguration))]
-    public class SubMeasureConfigurations : EntityTypeConfiguration<SubMeasure>, IDomainEntityConfiguration
+  [Export(typeof (IDomainEntityConfiguration))]
+  public class ConsumerTypeConfiguration : EntityTypeConfiguration<ConsumerType>, IDomainEntityConfiguration
+  {
+    public void AddConfigurationToModel(ConfigurationRegistrar configurations)
     {
-      public SubMeasureConfigurations()
-      {
-        HasOptional(s => s.ReleatedMeasure);
-      }
-
-      public void AddConfigurationToModel(ConfigurationRegistrar configurations)
-      {
-        configurations.Add(this);
-      }
+      configurations.Add(this);
     }
   }
 }
