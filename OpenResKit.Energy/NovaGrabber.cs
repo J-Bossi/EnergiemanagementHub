@@ -59,7 +59,8 @@ namespace OpenResKit.Energy
         {
           foreach (DataRow myRow in myTable.Rows)
           {
-            Consumer machine = collection.SingleOrDefault(c => c.Localid == (int) myRow["GERAETE_GER_ID"]);
+            Consumer machine = new Consumer();
+    //        Consumer machine = collection.SingleOrDefault(c => c.Localid == (int) myRow["GERAETE_GER_ID"]);
             if (machine != null)
             {
               machine.PowerCurrent = myRow["GERAETE_EIG_AMPERE"] == DBNull.Value
