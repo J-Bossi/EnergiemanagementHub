@@ -32,6 +32,10 @@ namespace OpenResKit.Energy
       HasOptional(m => m.MeasureImageSource)
         .WithOptionalPrincipal()
         .WillCascadeOnDelete(true);
+      HasOptional(m => m.Room)
+        .WithMany();
+      HasOptional(m => m.Consumer)
+        .WithMany();
     }
 
     public void AddConfigurationToModel(ConfigurationRegistrar configurations)
@@ -55,8 +59,7 @@ namespace OpenResKit.Energy
     public ConsumerConfiguration()
     {
       HasOptional(c => c.Room)
-        .WithMany()
-        .WillCascadeOnDelete(true);
+        .WithMany();
       HasMany(c => c.Readings)
         .WithOptional()
         .WillCascadeOnDelete(true);

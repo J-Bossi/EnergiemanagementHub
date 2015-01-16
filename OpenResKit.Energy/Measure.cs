@@ -22,6 +22,8 @@ namespace OpenResKit.Energy
     public virtual string Department { get; set; } // Abteilung
     public virtual string Building { get; set; } // Gebäude
     public virtual string ConsumerUnit { get; set; } // Betrachteter Verbraucher
+    public Consumer Consumer { get; set; }
+    public Room Room { get; set; }
     public virtual string Parameter { get; set; } // Kenngröße -> Einheit EnPI
     public virtual string Meter { get; set; } // Verwendetes Messgerät
     public virtual double Investment { get; set; } // Nötige Investitionskosten
