@@ -10,7 +10,7 @@
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //  
-// Copyright (c) 2014, Johannes Boß - HTW Berlin
+// Copyright (c) 2015, Johannes Boß - HTW Berlin
 
 #endregion
 
@@ -22,6 +22,7 @@ namespace OpenResKit.Energy
   {
     public virtual int Id { get; set; }
     public string Name { get; set; }
+    public string Comment { get; set; }
     public virtual ICollection<Reading> Readings { get; set; }
     public bool IsMainDistributor { get; set; }
     public Room Room { get; set; }
