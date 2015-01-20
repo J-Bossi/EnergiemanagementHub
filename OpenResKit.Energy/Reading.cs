@@ -23,5 +23,6 @@ namespace OpenResKit.Energy
     public virtual int Id { get; set; }
     public virtual long CounterReading { get; set; }
     public virtual DateTime ReadingDate { get; set; }
+    public string MeasuringDevice { get; set; }
   }
 }
