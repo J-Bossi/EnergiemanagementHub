@@ -21,9 +21,8 @@ using System.ComponentModel.Composition;
 using System.Data.Entity;
 using System.Reflection;
 using OpenResKit.DomainModel;
-using OpenResKit.Measure;
+using OpenResKit.Energy.Factory;
 using OpenResKit.Organisation;
-using ModelFactory = OpenResKit.Energy.Factory.ModelFactory;
 
 namespace OpenResKit.Energy
 {
@@ -39,9 +38,9 @@ namespace OpenResKit.Energy
       //    dbContext.Set<Machine>().AddOrUpdate(machine);
       //}
 
-      Employee responsibleSubject1 = ResponsibleSubjectModelFactory.CreateEmployee("Hans", "Müller");
-      Employee responsibleSubject2 = ResponsibleSubjectModelFactory.CreateEmployee("Gabi", "Becker");
-      EmployeeGroup responsibleGroup = ResponsibleSubjectModelFactory.CreateGroup("Praktikanten");
+      var responsibleSubject1 = ResponsibleSubjectModelFactory.CreateEmployee("Hans", "Müller");
+      var responsibleSubject2 = ResponsibleSubjectModelFactory.CreateEmployee("Gabi", "Becker");
+      var responsibleGroup = ResponsibleSubjectModelFactory.CreateGroup("Praktikanten");
 
       dbContext.Set<EmployeeGroup>()
                .Add(responsibleGroup);
@@ -52,28 +51,28 @@ namespace OpenResKit.Energy
       dbContext.Set<Employee>()
                .Add(responsibleSubject2);
 
-      Assembly assembly = Assembly.GetExecutingAssembly();
+      var assembly = Assembly.GetExecutingAssembly();
 
-      DateTime creationDate = DateTime.Now;
+      var creationDate = DateTime.Now;
 
       var measureCollection1 = new List<EnergyMeasure>();
       var measureCollection2 = new List<EnergyMeasure>();
 
-      for (int i = 0; i < 10; i++)
+      for (var i = 0; i < 10; i++)
       {
-        Document word = DocumentModelFactory.CreateDocument("doc1.docx",
+        var word = DocumentModelFactory.CreateDocument("doc1.docx",
           assembly.GetManifestResourceStream("OpenResKit.Energy.Resources.dummyword.docx"));
-        Document pdf = DocumentModelFactory.CreateDocument("pdf1.pdf",
+        var pdf = DocumentModelFactory.CreateDocument("pdf1.pdf",
           assembly.GetManifestResourceStream("OpenResKit.Energy.Resources.dummypdf.pdf"));
 
-        string measureName = "Container leeren";
-        string description = "Der Container ist voll";
-        string evaluationText = "Das Leeren hat funktioniert";
-        DateTime entryDate = DateTime.Now.AddDays(-i * 7 - 1);
-        DateTime dueDate = DateTime.Now.AddDays(-i * 7);
-        int status = 2;
-        double rating = 0.8;
-        int priority = 0;
+        var measureName = "Container leeren";
+        var description = "Der Container ist voll";
+        var evaluationText = "Das Leeren hat funktioniert";
+        var entryDate = DateTime.Now.AddDays(-i * 7 - 1);
+        var dueDate = DateTime.Now.AddDays(-i * 7);
+        var status = 2;
+        var rating = 0.8;
+        var priority = 0;
         var imageSource =
           ModelFactory.CreateImage(assembly.GetManifestResourceStream("OpenResKit.Energy.Resources.dummyImage1.jpg"));
         var measure = ModelFactory.CreateMeasure(measureName, description, evaluationText, entryDate, dueDate,
@@ -85,22 +84,22 @@ namespace OpenResKit.Energy
         measureCollection1.Add(measure);
       }
 
-      for (int i = 5; i < 10; i++)
+      for (var i = 5; i < 10; i++)
       {
-        Document word = DocumentModelFactory.CreateDocument("doc1.docx",
+        var word = DocumentModelFactory.CreateDocument("doc1.docx",
           assembly.GetManifestResourceStream("OpenResKit.Energy.Resources.dummyword.docx"));
-        Document pdf = DocumentModelFactory.CreateDocument("pdf1.pdf",
+        var pdf = DocumentModelFactory.CreateDocument("pdf1.pdf",
           assembly.GetManifestResourceStream("OpenResKit.Energy.Resources.dummypdf.pdf"));
 
-        string measureName = "Container leeren";
-        string description = "Der Container ist voll";
-        DateTime dueDate = DateTime.Now.AddDays(-i * 7);
-        string evaluationText = string.Empty;
+        var measureName = "Container leeren";
+        var description = "Der Container ist voll";
+        var dueDate = DateTime.Now.AddDays(-i * 7);
+        var evaluationText = string.Empty;
         DateTime? entryDate = null;
-        int status = 0;
-        double ratig = 0.0;
-        int priority = 1;
-        MeasureImageSource imageSource =
+        var status = 0;
+        var ratig = 0.0;
+        var priority = 1;
+        var imageSource =
           ModelFactory.CreateImage(assembly.GetManifestResourceStream("OpenResKit.Energy.Resources.dummyImage2.jpg"));
         var measure = ModelFactory.CreateMeasure(measureName, description, evaluationText, entryDate, dueDate,
           responsibleSubject1, status, priority, creationDate, ratig, imageSource, new Collection<Document>
@@ -111,45 +110,37 @@ namespace OpenResKit.Energy
         measureCollection1.Add(measure);
       }
 
-      for (int i = 0; i < 5; i++)
+      for (var i = 0; i < 5; i++)
       {
-        string measureName = "Stromzähler ablesen";
-        string description = "Stromzähler befindet sich im Keller";
-        string evaluationText = string.Empty;
+        var measureName = "Stromzähler ablesen";
+        var description = "Stromzähler befindet sich im Keller";
+        var evaluationText = string.Empty;
         DateTime? entryDate = null;
-        DateTime dueDate = DateTime.Now.AddDays(-i * 3);
-        int status = 0;
-        double rating = 0.2;
-        int priority = 2;
-        MeasureImageSource imageSource =
+        var dueDate = DateTime.Now.AddDays(-i * 3);
+        var status = 0;
+        var rating = 0.2;
+        var priority = 2;
+        var imageSource =
           Measure.ModelFactory.CreateImage(assembly.GetManifestResourceStream("OpenResKit.Energy.Resources.dummyImage3.jpg"));
         var measure = ModelFactory.CreateMeasure(measureName, description, evaluationText, entryDate, dueDate,
           responsibleSubject1, status, priority, creationDate, rating, imageSource, null);
         measureCollection2.Add(measure);
       }
 
-      for (int i = 5; i < 10; i++)
+      for (var i = 5; i < 10; i++)
       {
-        string measureName = "Stromzähler ablesen";
-        string description = "Stromzähler befindet sich im Keller";
-        string evaluationText = "Das Ablesen war wegen dem ganzen Schmutz kaum möglich";
-        DateTime entryDate = DateTime.Now.AddDays(-i * 30);
-        DateTime dueDate = DateTime.Now.AddDays(-i * 30);
-        int status = 2;
-        double rating = 0.4;
-        int priority = 2;
+        var measureName = "Stromzähler ablesen";
+        var description = "Stromzähler befindet sich im Keller";
+        var evaluationText = "Das Ablesen war wegen dem ganzen Schmutz kaum möglich";
+        var entryDate = DateTime.Now.AddDays(-i * 30);
+        var dueDate = DateTime.Now.AddDays(-i * 30);
+        var status = 2;
+        var rating = 0.4;
+        var priority = 2;
         var measure = ModelFactory.CreateMeasure(measureName, description, evaluationText, entryDate, dueDate,
           responsibleSubject1, status, priority, creationDate, rating, null, null);
         measureCollection2.Add(measure);
       }
-
-      Catalog catalog1 = Measure.ModelFactory.CreateCatalog("Katalog 1", "Das ist Katalog 1", measureCollection1.ToArray());
-      Catalog catalog2 = Measure.ModelFactory.CreateCatalog("Katalog 2", "Das ist Katalog 2", measureCollection2.ToArray());
-
-      dbContext.Set<Catalog>()
-               .Add(catalog1);
-      dbContext.Set<Catalog>()
-               .Add(catalog2);
 
       var subMeasure = new SubMeasure
       {
@@ -162,19 +153,19 @@ namespace OpenResKit.Energy
       dbContext.Set<SubMeasure>()
                .Add(subMeasure);
 
-      ConsumerType sgm = new ConsumerType
+      var sgm = new ConsumerType
       {
         TypeName = "SGM"
       };
-      ConsumerType auto = new ConsumerType
+      var auto = new ConsumerType
       {
         TypeName = "Automaten"
       };
-      ConsumerType pc = new ConsumerType
+      var pc = new ConsumerType
       {
         TypeName = "PCs"
       };
-      ConsumerType server = new ConsumerType
+      var server = new ConsumerType
       {
         TypeName = "Server"
       };
@@ -187,13 +178,12 @@ namespace OpenResKit.Energy
       dbContext.Set<ConsumerType>()
                .Add(server);
 
-      ConsumerGroup consumerGroupEdv = ModelFactory.CreateConsumerGroup("01 EDV");
+      var consumerGroupEdv = ModelFactory.CreateConsumerGroup("01 EDV");
       consumerGroupEdv.ConsumerTypes.Add(pc);
       consumerGroupEdv.ConsumerTypes.Add(server);
-      ConsumerGroup consumerGroupAnlagen = ModelFactory.CreateConsumerGroup("02 Anlagen");
+      var consumerGroupAnlagen = ModelFactory.CreateConsumerGroup("02 Anlagen");
       consumerGroupAnlagen.ConsumerTypes.Add(auto);
       consumerGroupAnlagen.ConsumerTypes.Add(sgm);
-     
 
       dbContext.Set<ConsumerGroup>()
                .Add(consumerGroupEdv);
@@ -201,17 +191,23 @@ namespace OpenResKit.Energy
                .Add(consumerGroupAnlagen);
       dbContext.SaveChanges();
 
-      Distributor distributorvi = ModelFactory.CreateDistributor("Verteiler Villa");
-      Distributor distributorA = ModelFactory.CreateDistributor("Verteiler Gebäude A");
+      var distributorvi = ModelFactory.CreateDistributor("Verteiler Villa");
+      var distributorA = ModelFactory.CreateDistributor("Verteiler Gebäude A");
+      var distributorSchiene = ModelFactory.CreateDistributor("Stromschine 1");
 
       dbContext.Set<Distributor>()
                .Add(distributorvi);
       dbContext.Set<Distributor>()
                .Add(distributorA);
+      dbContext.Set<Distributor>()
+               .Add(distributorSchiene);
 
-      Consumer auto1 = ModelFactory.CreateConsumer("Automat1", distributorA, consumerGroupAnlagen, auto);
-      Consumer auto2 = ModelFactory.CreateConsumer("Automat1", distributorA, consumerGroupAnlagen, auto);
-      Consumer sgm1 = ModelFactory.CreateConsumer("Spritzgußmaschine 1", distributorA, consumerGroupAnlagen, sgm);
+      var auto1 = ModelFactory.CreateConsumer("Automat 1", distributorA, consumerGroupAnlagen, auto);
+      var auto2 = ModelFactory.CreateConsumer("Automat 2", distributorA, consumerGroupAnlagen, auto);
+      var sgm1 = ModelFactory.CreateConsumer("Spritzgußmaschine 1", distributorA, consumerGroupAnlagen, sgm);
+      var sgm2 = ModelFactory.CreateConsumer("Spritzgußmaschine 2", distributorSchiene, consumerGroupAnlagen, sgm);
+      var sgm3 = ModelFactory.CreateConsumer("Spritzgußmaschine 3", distributorSchiene, consumerGroupAnlagen, sgm);
+      var sgm4 = ModelFactory.CreateConsumer("Spritzgußmaschine 4", distributorSchiene, consumerGroupAnlagen, sgm);
 
       dbContext.Set<Consumer>()
                .Add(auto1);
@@ -219,6 +215,12 @@ namespace OpenResKit.Energy
                .Add(auto2);
       dbContext.Set<Consumer>()
                .Add(sgm1);
+      dbContext.Set<Consumer>()
+               .Add(sgm2);
+      dbContext.Set<Consumer>()
+               .Add(sgm3);
+      dbContext.Set<Consumer>()
+               .Add(sgm4);
 
       dbContext.SaveChanges();
     }
