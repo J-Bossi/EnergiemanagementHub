@@ -47,6 +47,12 @@ namespace OpenResKit.Energy
   [Export(typeof (IDomainEntityConfiguration))]
   public class BuildingConfiguration : EntityTypeConfiguration<Building>, IDomainEntityConfiguration
   {
+    public BuildingConfiguration()
+    {
+      HasMany(b => b.Rooms)
+        .WithRequired();
+    }
+
     public void AddConfigurationToModel(ConfigurationRegistrar configuration)
     {
       configuration.Add(this);
@@ -121,13 +127,6 @@ namespace OpenResKit.Energy
   [Export(typeof (IDomainEntityConfiguration))]
   public class RoomConfiguration : EntityTypeConfiguration<Room>, IDomainEntityConfiguration
   {
-    public RoomConfiguration()
-    {
-      HasRequired(r => r.Building)
-        .WithMany()
-        .WillCascadeOnDelete(true);
-    }
-
     public void AddConfigurationToModel(ConfigurationRegistrar configuration)
     {
       configuration.Add(this);
