@@ -14,11 +14,14 @@
 
 #endregion
 
+using System.Dynamic;
+
 namespace OpenResKit.Energy
 {
   public class Room
   {
     public virtual int Id { get; set; }
+    public virtual string Building { get; set; }
     public virtual string RoomNumber { get; set; }
     public virtual int Floor { get; set; } //Etage (0,1,2,...)
     public virtual long Space { get; set; } // square Meters

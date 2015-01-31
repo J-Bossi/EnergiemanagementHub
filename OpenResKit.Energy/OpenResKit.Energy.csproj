@@ -59,7 +59,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Building.cs" />
     <Compile Include="Configurations.cs" />
     <Compile Include="Consumer.cs" />
     <Compile Include="ConsumerGroup.cs" />

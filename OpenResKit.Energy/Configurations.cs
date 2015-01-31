@@ -44,20 +44,20 @@ namespace OpenResKit.Energy
     }
   }
 
-  [Export(typeof (IDomainEntityConfiguration))]
-  public class BuildingConfiguration : EntityTypeConfiguration<Building>, IDomainEntityConfiguration
-  {
-    public BuildingConfiguration()
-    {
-      HasMany(b => b.Rooms)
-        .WithRequired();
-    }
+  //[Export(typeof (IDomainEntityConfiguration))]
+  //public class BuildingConfiguration : EntityTypeConfiguration<Building>, IDomainEntityConfiguration
+  //{
+  //  public BuildingConfiguration()
+  //  {
+  //    HasMany(b => b.Rooms)
+  //      .WithRequired();
+  //  }
 
-    public void AddConfigurationToModel(ConfigurationRegistrar configuration)
-    {
-      configuration.Add(this);
-    }
-  }
+  //  public void AddConfigurationToModel(ConfigurationRegistrar configuration)
+  //  {
+  //    configuration.Add(this);
+  //  }
+  //}
 
   [Export(typeof (IDomainEntityConfiguration))]
   public class ConsumerConfiguration : EntityTypeConfiguration<Consumer>, IDomainEntityConfiguration
