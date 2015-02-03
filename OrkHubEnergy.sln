@@ -9,6 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenResKit.Measure", "OpenR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenResKit.Organisation", "OpenResKit.Organisation\OpenResKit.Organisation.csproj", "{B782D688-DAE4-484A-A2D8-CC556A39F4B8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{48FE085E-4C37-4860-B595-030D876A9DA4}"
+	ProjectSection(SolutionItems) = preProject
+		..\OrkHub\.nuget\NuGet.Config = ..\OrkHub\.nuget\NuGet.Config
+		..\OrkHub\.nuget\NuGet.exe = ..\OrkHub\.nuget\NuGet.exe
+		..\OrkHub\.nuget\NuGet.targets = ..\OrkHub\.nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

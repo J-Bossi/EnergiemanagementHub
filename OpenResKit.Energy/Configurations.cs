@@ -19,6 +19,7 @@ using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Configuration;
 using OpenResKit.DomainModel;
 
+
 namespace OpenResKit.Energy
 {
   [Export(typeof (IDomainEntityConfiguration))]

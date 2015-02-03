@@ -24,8 +24,8 @@ namespace OpenResKit.Energy
     public virtual string Building { get; set; }
     public virtual string RoomNumber { get; set; }
     public virtual int Floor { get; set; } //Etage (0,1,2,...)
-    public virtual long Space { get; set; } // square Meters
-    public virtual long Height { get; set; }
+    public virtual long? Space { get; set; } // square Meters
+    public virtual long? Height { get; set; }
     public virtual string RoomInformation { get; set; }
     public virtual string RoomUsage { get; set; }
   }
