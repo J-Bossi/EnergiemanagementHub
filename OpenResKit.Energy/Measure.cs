@@ -14,6 +14,8 @@
 
 #endregion
 
+using OpenResKit.RoomBook;
+
 namespace OpenResKit.Energy
 {
   public class EnergyMeasure : Measure.Measure

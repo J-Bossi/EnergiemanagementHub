@@ -10,13 +10,11 @@
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //  
-// Copyright (c) 2014, Johannes Boß - HTW Berlin
+// Copyright (c) 2015, Johannes Boß - HTW Berlin
 
 #endregion
 
-using System.Dynamic;
-
-namespace OpenResKit.Energy
+namespace OpenResKit.RoomBook
 {
   public class Room
   {
@@ -24,9 +22,11 @@ namespace OpenResKit.Energy
     public virtual string Building { get; set; }
     public virtual string RoomNumber { get; set; }
     public virtual int Floor { get; set; } //Etage (0,1,2,...)
-    public virtual long? Space { get; set; } // square Meters
-    public virtual long? Height { get; set; }
-    public virtual string RoomInformation { get; set; }
-    public virtual string RoomUsage { get; set; }
+    public virtual string Level { get; set; } //Ebene
+    public virtual float? Space { get; set; } // square Meters
+    public virtual float? Height { get; set; }
+    public virtual RoomUsage RoomInformation { get; set; }
+    public virtual Flooring Flooring { get; set; }
+    public virtual Cleaning CleaningInterval { get; set; }
   }
 }

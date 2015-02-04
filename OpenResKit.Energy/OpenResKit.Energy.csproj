@@ -108,7 +108,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Reading.cs" />
-    <Compile Include="Room.cs" />
     <Compile Include="SubMeasure.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -147,6 +146,10 @@
     <ProjectReference Include="..\OpenResKit.Organisation\OpenResKit.Organisation.csproj">
       <Project>{b782d688-dae4-484a-a2d8-cc556a39f4b8}</Project>
       <Name>OpenResKit.Organisation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenResKit.RoomBook\OpenResKit.RoomBook.csproj">
+      <Project>{48be146e-fdc4-4586-90bc-f4ade742fc6d}</Project>
+      <Name>OpenResKit.RoomBook</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

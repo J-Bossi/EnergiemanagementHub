@@ -15,6 +15,7 @@
 #endregion
 
 using System.Collections.Generic;
+using OpenResKit.RoomBook;
 
 namespace OpenResKit.Energy
 {

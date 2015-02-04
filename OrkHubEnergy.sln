@@ -16,24 +16,47 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{48FE08
 		..\OrkHub\.nuget\NuGet.targets = ..\OrkHub\.nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenResKit.RoomBook", "OpenResKit.RoomBook\OpenResKit.RoomBook.csproj", "{48BE146E-FDC4-4586-90BC-F4ADE742FC6D}"
+EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "OpenResKit.RoomBook.Integration", "OpenResKit.RoomBook.Integration\OpenResKit.RoomBook.Integration.dtproj", "{645A5933-EC88-48FD-8907-CAA275107109}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Development|Any CPU = Development|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{142D6F71-D6AF-494E-B3C7-7FB598A86967}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{142D6F71-D6AF-494E-B3C7-7FB598A86967}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{142D6F71-D6AF-494E-B3C7-7FB598A86967}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{142D6F71-D6AF-494E-B3C7-7FB598A86967}.Development|Any CPU.Build.0 = Debug|Any CPU
 		{142D6F71-D6AF-494E-B3C7-7FB598A86967}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{142D6F71-D6AF-494E-B3C7-7FB598A86967}.Release|Any CPU.Build.0 = Release|Any CPU
 		{11E8500C-651A-4D19-AA0B-6DFADB9AF7C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{11E8500C-651A-4D19-AA0B-6DFADB9AF7C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11E8500C-651A-4D19-AA0B-6DFADB9AF7C9}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{11E8500C-651A-4D19-AA0B-6DFADB9AF7C9}.Development|Any CPU.Build.0 = Debug|Any CPU
 		{11E8500C-651A-4D19-AA0B-6DFADB9AF7C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11E8500C-651A-4D19-AA0B-6DFADB9AF7C9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B782D688-DAE4-484A-A2D8-CC556A39F4B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B782D688-DAE4-484A-A2D8-CC556A39F4B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B782D688-DAE4-484A-A2D8-CC556A39F4B8}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{B782D688-DAE4-484A-A2D8-CC556A39F4B8}.Development|Any CPU.Build.0 = Debug|Any CPU
 		{B782D688-DAE4-484A-A2D8-CC556A39F4B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B782D688-DAE4-484A-A2D8-CC556A39F4B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48BE146E-FDC4-4586-90BC-F4ADE742FC6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48BE146E-FDC4-4586-90BC-F4ADE742FC6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48BE146E-FDC4-4586-90BC-F4ADE742FC6D}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{48BE146E-FDC4-4586-90BC-F4ADE742FC6D}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{48BE146E-FDC4-4586-90BC-F4ADE742FC6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48BE146E-FDC4-4586-90BC-F4ADE742FC6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{645A5933-EC88-48FD-8907-CAA275107109}.Debug|Any CPU.ActiveCfg = Development
+		{645A5933-EC88-48FD-8907-CAA275107109}.Debug|Any CPU.Build.0 = Development
+		{645A5933-EC88-48FD-8907-CAA275107109}.Development|Any CPU.ActiveCfg = Development
+		{645A5933-EC88-48FD-8907-CAA275107109}.Development|Any CPU.Build.0 = Development
+		{645A5933-EC88-48FD-8907-CAA275107109}.Release|Any CPU.ActiveCfg = Development
+		{645A5933-EC88-48FD-8907-CAA275107109}.Release|Any CPU.Build.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

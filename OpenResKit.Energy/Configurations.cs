@@ -18,6 +18,7 @@ using System.ComponentModel.Composition;
 using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Configuration;
 using OpenResKit.DomainModel;
+using OpenResKit.RoomBook;
 
 
 namespace OpenResKit.Energy
@@ -45,20 +46,6 @@ namespace OpenResKit.Energy
     }
   }
 
-  //[Export(typeof (IDomainEntityConfiguration))]
-  //public class BuildingConfiguration : EntityTypeConfiguration<Building>, IDomainEntityConfiguration
-  //{
-  //  public BuildingConfiguration()
-  //  {
-  //    HasMany(b => b.Rooms)
-  //      .WithRequired();
-  //  }
-
-  //  public void AddConfigurationToModel(ConfigurationRegistrar configuration)
-  //  {
-  //    configuration.Add(this);
-  //  }
-  //}
 
   [Export(typeof (IDomainEntityConfiguration))]
   public class ConsumerConfiguration : EntityTypeConfiguration<Consumer>, IDomainEntityConfiguration
@@ -125,14 +112,6 @@ namespace OpenResKit.Energy
     }
   }
 
-  [Export(typeof (IDomainEntityConfiguration))]
-  public class RoomConfiguration : EntityTypeConfiguration<Room>, IDomainEntityConfiguration
-  {
-    public void AddConfigurationToModel(ConfigurationRegistrar configuration)
-    {
-      configuration.Add(this);
-    }
-  }
 
   [Export(typeof (IDomainEntityConfiguration))]
   public class SubMeasureConfigurations : EntityTypeConfiguration<SubMeasure>, IDomainEntityConfiguration
