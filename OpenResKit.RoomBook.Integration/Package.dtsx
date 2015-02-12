@@ -11,29 +11,29 @@
   DTS:LocaleID="1031"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{F9501734-ED67-45B1-9014-86DA0ACEE282}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{84819548-C581-47C0-9396-177BC4BBDE54}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[D:\Entwicklung\Samples\Raumbuch 04-2014.accdb]"
+      DTS:refId="Package.ConnectionManagers[C:\Users\Johannes\Repos\Git\Raumbuch_normalisiert.accdb]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{84141995-4DD7-4644-89A5-49DB6755EB88}"
-      DTS:ObjectName="D:\Entwicklung\Samples\Raumbuch 04-2014.accdb">
+      DTS:DTSID="{68E1D4BB-2D38-481A-91C0-2EC37CC99F9E}"
+      DTS:ObjectName="C:\Users\Johannes\Repos\Git\Raumbuch_normalisiert.accdb">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=D:\Entwicklung\Samples\Raumbuch 04-2014.accdb;Provider=Microsoft.ACE.OLEDB.12.0;" />
+          DTS:ConnectionString="Data Source=C:\Users\Johannes\Repos\Git\Raumbuch_normalisiert.accdb;Provider=Microsoft.ACE.OLEDB.12.0;Persist Security Info=True;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[DESKTOP\SQLEXPRESS.OpenResKit.DomainModel.DomainModelContext]"
+      DTS:refId="Package.ConnectionManagers[HTW\SQLEXPRESS.OpenResKit.DomainModel.DomainModelContext]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{E7DC4CFE-860E-416F-9BF5-5BC983A53939}"
-      DTS:ObjectName="DESKTOP\SQLEXPRESS.OpenResKit.DomainModel.DomainModelContext">
+      DTS:DTSID="{525FE645-2605-4E59-8D17-B0174F79965A}"
+      DTS:ObjectName="HTW\SQLEXPRESS.OpenResKit.DomainModel.DomainModelContext">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=DESKTOP\SQLEXPRESS;Initial Catalog=OpenResKit.DomainModel.DomainModelContext;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=HTW\SQLEXPRESS;Initial Catalog=OpenResKit.DomainModel.DomainModelContext;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -51,7 +51,1271 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <pipeline
-          version="1" />
+          version="1">
+          <components>
+            <component
+              refId="Package\Datenflusstask\OLE DB-Quelle Cleaning"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB-Quelle;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Alle Rechte vorbehalten; http://www.microsoft.com/sql/support;7"
+              description="OLE DB-Quelle"
+              name="OLE DB-Quelle Cleaning"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Die Anzahl der Sekunden für das Timeout eines Befehls. Der Wert '0' zeigt einen unendlichen Timeoutwert an."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Gibt den Namen des zum Öffnen eines Rowsets verwendeten Datenbankobjekts an."
+                  name="OpenRowset">tbl_Reinigungsintervalle</property>
+                <property
+                  dataType="System.String"
+                  description="Gibt die Variable an, die den Namen des zum Öffnen eines Rowsets verwendeten Datenbankobjekts enthält."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Der auszuführende SQL-Befehl."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Die Variable, die den auszuführenden SQL-Befehl enthält."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Gibt die zu verwendende Spaltencodepage an, wenn keine Codepageinformationen von der Datenquelle verfügbar sind."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Erzwingt die Verwendung des DefaultCodePage-Eigenschaftswerts beim Beschreiben von Zeichendaten."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Gibt den zum Zugreifen auf die Datenbank verwendeten Modus an."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Die Zuordnungen zwischen den Parametern im SQL-Befehl und den Variablen."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[C:\Users\Johannes\Repos\Git\Raumbuch_normalisiert.accdb]"
+                  connectionManagerRefId="Package.ConnectionManagers[C:\Users\Johannes\Repos\Git\Raumbuch_normalisiert.accdb]"
+                  description="Die für den Zugriff auf die Datenbank verwendete OLE DB-Laufzeitverbindung."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle]"
+                  name="Ausgabe der OLE DB-Quelle">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle].Columns[ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[ID]"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle].Columns[Reinigungen pro Woche]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Reinigungen pro Woche]"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle].Columns[Reinigungen pro Woche]"
+                      name="Reinigungen pro Woche"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle].Columns[Fremd]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Fremd]"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle].Columns[Fremd]"
+                      name="Fremd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle].Columns[Eigen]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Eigen]"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle].Columns[Eigen]"
+                      name="Eigen"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle].Columns[Sonder]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Sonder]"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle].Columns[Sonder]"
+                      name="Sonder"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle].Columns[Wochentage]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Wochentage]"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle].Columns[Wochentage]"
+                      name="Wochentage"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle].Columns[Turnus]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Turnus]"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle].Columns[Turnus]"
+                      name="Turnus"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Reinigungen pro Woche]"
+                      dataType="wstr"
+                      length="255"
+                      name="Reinigungen pro Woche" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Fremd]"
+                      dataType="bool"
+                      name="Fremd" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Eigen]"
+                      dataType="bool"
+                      name="Eigen" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Sonder]"
+                      dataType="bool"
+                      name="Sonder" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Wochentage]"
+                      dataType="wstr"
+                      length="255"
+                      name="Wochentage" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Turnus]"
+                      dataType="wstr"
+                      length="255"
+                      name="Turnus" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Fehlerausgabe der OLE DB-Quelle]"
+                  isErrorOut="true"
+                  name="Fehlerausgabe der OLE DB-Quelle">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[ID]"
+                      dataType="i4"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Reinigungen pro Woche]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Reinigungen pro Woche]"
+                      name="Reinigungen pro Woche" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Fremd]"
+                      dataType="bool"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Fremd]"
+                      name="Fremd" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Eigen]"
+                      dataType="bool"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Eigen]"
+                      name="Eigen" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Sonder]"
+                      dataType="bool"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Sonder]"
+                      name="Sonder" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Wochentage]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Wochentage]"
+                      name="Wochentage" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Turnus]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Turnus]"
+                      name="Turnus" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Cleaning.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Datenflusstask\OLE DB-Quelle Fußböden"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB-Quelle;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Alle Rechte vorbehalten; http://www.microsoft.com/sql/support;7"
+              description="OLE DB-Quelle"
+              name="OLE DB-Quelle Fußböden"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Die Anzahl der Sekunden für das Timeout eines Befehls. Der Wert '0' zeigt einen unendlichen Timeoutwert an."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Gibt den Namen des zum Öffnen eines Rowsets verwendeten Datenbankobjekts an."
+                  name="OpenRowset">tbl_Fußböden</property>
+                <property
+                  dataType="System.String"
+                  description="Gibt die Variable an, die den Namen des zum Öffnen eines Rowsets verwendeten Datenbankobjekts enthält."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Der auszuführende SQL-Befehl."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Die Variable, die den auszuführenden SQL-Befehl enthält."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Gibt die zu verwendende Spaltencodepage an, wenn keine Codepageinformationen von der Datenquelle verfügbar sind."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Erzwingt die Verwendung des DefaultCodePage-Eigenschaftswerts beim Beschreiben von Zeichendaten."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Gibt den zum Zugreifen auf die Datenbank verwendeten Modus an."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Die Zuordnungen zwischen den Parametern im SQL-Befehl und den Variablen."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[C:\Users\Johannes\Repos\Git\Raumbuch_normalisiert.accdb]"
+                  connectionManagerRefId="Package.ConnectionManagers[C:\Users\Johannes\Repos\Git\Raumbuch_normalisiert.accdb]"
+                  description="Die für den Zugriff auf die Datenbank verwendete OLE DB-Laufzeitverbindung."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle]"
+                  name="Ausgabe der OLE DB-Quelle">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].Columns[Material]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Material]"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].Columns[Material]"
+                      name="Material"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].Columns[Info]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Info]"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].Columns[Info]"
+                      name="Info"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].Columns[ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[ID]"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].Columns[Bodenbelag]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Bodenbelag]"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].Columns[Bodenbelag]"
+                      name="Bodenbelag"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].Columns[Hersteller]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Hersteller]"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].Columns[Hersteller]"
+                      name="Hersteller"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].Columns[Farbe]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Farbe]"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].Columns[Farbe]"
+                      name="Farbe"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].Columns[Reinigungsmethode Unterhaltsreinigung]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Reinigungsmethode Unterhaltsreinigung]"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].Columns[Reinigungsmethode Unterhaltsreinigung]"
+                      name="Reinigungsmethode Unterhaltsreinigung"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].Columns[Zugelassene Reinigungsmittel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Zugelassene Reinigungsmittel]"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].Columns[Zugelassene Reinigungsmittel]"
+                      name="Zugelassene Reinigungsmittel"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Material]"
+                      dataType="wstr"
+                      length="255"
+                      name="Material" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Info]"
+                      dataType="wstr"
+                      length="255"
+                      name="Info" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Bodenbelag]"
+                      dataType="wstr"
+                      length="255"
+                      name="Bodenbelag" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Hersteller]"
+                      dataType="wstr"
+                      length="255"
+                      name="Hersteller" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Farbe]"
+                      dataType="wstr"
+                      length="255"
+                      name="Farbe" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Reinigungsmethode Unterhaltsreinigung]"
+                      dataType="wstr"
+                      length="255"
+                      name="Reinigungsmethode Unterhaltsreinigung" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Zugelassene Reinigungsmittel]"
+                      dataType="wstr"
+                      length="255"
+                      name="Zugelassene Reinigungsmittel" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Fehlerausgabe der OLE DB-Quelle]"
+                  isErrorOut="true"
+                  name="Fehlerausgabe der OLE DB-Quelle">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[ID]"
+                      dataType="i4"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Bodenbelag]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Bodenbelag]"
+                      name="Bodenbelag" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Hersteller]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Hersteller]"
+                      name="Hersteller" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Material]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Material]"
+                      name="Material" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Farbe]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Farbe]"
+                      name="Farbe" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Info]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Info]"
+                      name="Info" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Reinigungsmethode Unterhaltsreinigung]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Reinigungsmethode Unterhaltsreinigung]"
+                      name="Reinigungsmethode Unterhaltsreinigung" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Zugelassene Reinigungsmittel]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Zugelassene Reinigungsmittel]"
+                      name="Zugelassene Reinigungsmittel" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Fußböden.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Datenflusstask\OLE DB-Quelle Room"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB-Quelle;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Alle Rechte vorbehalten; http://www.microsoft.com/sql/support;7"
+              description="OLE DB-Quelle"
+              name="OLE DB-Quelle Room"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Die Anzahl der Sekunden für das Timeout eines Befehls. Der Wert '0' zeigt einen unendlichen Timeoutwert an."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Gibt den Namen des zum Öffnen eines Rowsets verwendeten Datenbankobjekts an."
+                  name="OpenRowset">tbl_Rauminformationen</property>
+                <property
+                  dataType="System.String"
+                  description="Gibt die Variable an, die den Namen des zum Öffnen eines Rowsets verwendeten Datenbankobjekts enthält."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Der auszuführende SQL-Befehl."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Die Variable, die den auszuführenden SQL-Befehl enthält."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Gibt die zu verwendende Spaltencodepage an, wenn keine Codepageinformationen von der Datenquelle verfügbar sind."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Erzwingt die Verwendung des DefaultCodePage-Eigenschaftswerts beim Beschreiben von Zeichendaten."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Gibt den zum Zugreifen auf die Datenbank verwendeten Modus an."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Die Zuordnungen zwischen den Parametern im SQL-Befehl und den Variablen."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Datenflusstask\OLE DB-Quelle Room.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[C:\Users\Johannes\Repos\Git\Raumbuch_normalisiert.accdb]"
+                  connectionManagerRefId="Package.ConnectionManagers[C:\Users\Johannes\Repos\Git\Raumbuch_normalisiert.accdb]"
+                  description="Die für den Zugriff auf die Datenbank verwendete OLE DB-Laufzeitverbindung."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle]"
+                  name="Ausgabe der OLE DB-Quelle">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[ID]"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Raumnummer]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Raumnummer]"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Raumnummer]"
+                      name="Raumnummer"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Gebäude]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Gebäude]"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Gebäude]"
+                      name="Gebäude"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Etage]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Etage]"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Etage]"
+                      name="Etage"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Ebene]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Ebene]"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Ebene]"
+                      name="Ebene"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Fläche DIN (m²)]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Fläche DIN (m²)]"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Fläche DIN (m²)]"
+                      name="Fläche DIN (m²)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Rauminfo]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Rauminfo]"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Rauminfo]"
+                      name="Rauminfo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Nutzungsart]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Nutzungsart]"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Nutzungsart]"
+                      name="Nutzungsart"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Deckenhöhe (Abgehangen)]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Deckenhöhe (Abgehangen)]"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Deckenhöhe (Abgehangen)]"
+                      name="Deckenhöhe (Abgehangen)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Rohdecke]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Rohdecke]"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Rohdecke]"
+                      name="Rohdecke"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Rohdecke 2]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Rohdecke 2]"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Rohdecke 2]"
+                      name="Rohdecke 2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Fußboden]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Fußboden]"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Fußboden]"
+                      name="Fußboden"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Reinigung]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Reinigung]"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Reinigung]"
+                      name="Reinigung"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Grundriss Bild]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Grundriss Bild]"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Grundriss Bild]"
+                      name="Grundriss Bild"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Lampen im Raum]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Lampen im Raum]"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Lampen im Raum]"
+                      name="Lampen im Raum"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Raumnummer]"
+                      dataType="wstr"
+                      length="255"
+                      name="Raumnummer" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Gebäude]"
+                      dataType="wstr"
+                      length="255"
+                      name="Gebäude" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Etage]"
+                      dataType="r8"
+                      name="Etage" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Ebene]"
+                      dataType="wstr"
+                      length="255"
+                      name="Ebene" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Fläche DIN (m²)]"
+                      dataType="r8"
+                      name="Fläche DIN (m²)" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Rauminfo]"
+                      dataType="i4"
+                      name="Rauminfo" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Nutzungsart]"
+                      dataType="i4"
+                      name="Nutzungsart" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Deckenhöhe (Abgehangen)]"
+                      dataType="r8"
+                      name="Deckenhöhe (Abgehangen)" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Rohdecke]"
+                      dataType="r8"
+                      name="Rohdecke" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Rohdecke 2]"
+                      dataType="r8"
+                      name="Rohdecke 2" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Fußboden]"
+                      dataType="i4"
+                      name="Fußboden" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Reinigung]"
+                      dataType="i4"
+                      name="Reinigung" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Grundriss Bild]"
+                      dataType="nText"
+                      name="Grundriss Bild" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Lampen im Raum]"
+                      dataType="i4"
+                      name="Lampen im Raum" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle]"
+                  isErrorOut="true"
+                  name="Fehlerausgabe der OLE DB-Quelle">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[ID]"
+                      dataType="i4"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Raumnummer]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Raumnummer]"
+                      name="Raumnummer" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Gebäude]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Gebäude]"
+                      name="Gebäude" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Etage]"
+                      dataType="r8"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Etage]"
+                      name="Etage" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Ebene]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Ebene]"
+                      name="Ebene" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Fläche DIN (m²)]"
+                      dataType="r8"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Fläche DIN (m²)]"
+                      name="Fläche DIN (m²)" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Rauminfo]"
+                      dataType="i4"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Rauminfo]"
+                      name="Rauminfo" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Nutzungsart]"
+                      dataType="i4"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Nutzungsart]"
+                      name="Nutzungsart" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Deckenhöhe (Abgehangen)]"
+                      dataType="r8"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Deckenhöhe (Abgehangen)]"
+                      name="Deckenhöhe (Abgehangen)" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Rohdecke]"
+                      dataType="r8"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Rohdecke]"
+                      name="Rohdecke" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Rohdecke 2]"
+                      dataType="r8"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Rohdecke 2]"
+                      name="Rohdecke 2" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Fußboden]"
+                      dataType="i4"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Fußboden]"
+                      name="Fußboden" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Reinigung]"
+                      dataType="i4"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Reinigung]"
+                      name="Reinigung" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Grundriss Bild]"
+                      dataType="nText"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Grundriss Bild]"
+                      name="Grundriss Bild" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Lampen im Raum]"
+                      dataType="i4"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Lampen im Raum]"
+                      name="Lampen im Raum" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Datenflusstask\OLE DB-Quelle Usage"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB-Quelle;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Alle Rechte vorbehalten; http://www.microsoft.com/sql/support;7"
+              description="OLE DB-Quelle"
+              name="OLE DB-Quelle Usage"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Die Anzahl der Sekunden für das Timeout eines Befehls. Der Wert '0' zeigt einen unendlichen Timeoutwert an."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Gibt den Namen des zum Öffnen eines Rowsets verwendeten Datenbankobjekts an."
+                  name="OpenRowset">tbl_Nutzungsart nach DIN 277-2:2005-02</property>
+                <property
+                  dataType="System.String"
+                  description="Gibt die Variable an, die den Namen des zum Öffnen eines Rowsets verwendeten Datenbankobjekts enthält."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Der auszuführende SQL-Befehl."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Die Variable, die den auszuführenden SQL-Befehl enthält."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Gibt die zu verwendende Spaltencodepage an, wenn keine Codepageinformationen von der Datenquelle verfügbar sind."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Erzwingt die Verwendung des DefaultCodePage-Eigenschaftswerts beim Beschreiben von Zeichendaten."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Gibt den zum Zugreifen auf die Datenbank verwendeten Modus an."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Die Zuordnungen zwischen den Parametern im SQL-Befehl und den Variablen."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Datenflusstask\OLE DB-Quelle Usage.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[C:\Users\Johannes\Repos\Git\Raumbuch_normalisiert.accdb]"
+                  connectionManagerRefId="Package.ConnectionManagers[C:\Users\Johannes\Repos\Git\Raumbuch_normalisiert.accdb]"
+                  description="Die für den Zugriff auf die Datenbank verwendete OLE DB-Laufzeitverbindung."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Ausgabe der OLE DB-Quelle]"
+                  name="Ausgabe der OLE DB-Quelle">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Ausgabe der OLE DB-Quelle].Columns[ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[ID]"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Ausgabe der OLE DB-Quelle].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Ausgabe der OLE DB-Quelle].Columns[Gruppe]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Gruppe]"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Ausgabe der OLE DB-Quelle].Columns[Gruppe]"
+                      name="Gruppe"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Ausgabe der OLE DB-Quelle].Columns[Schlüssel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Schlüssel]"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Ausgabe der OLE DB-Quelle].Columns[Schlüssel]"
+                      name="Schlüssel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Ausgabe der OLE DB-Quelle].Columns[Beispiele]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Beispiele]"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Ausgabe der OLE DB-Quelle].Columns[Beispiele]"
+                      name="Beispiele"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Ausgabe der OLE DB-Quelle].Columns[Nutzergruppe]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Nutzergruppe]"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Ausgabe der OLE DB-Quelle].Columns[Nutzergruppe]"
+                      name="Nutzergruppe"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Ausgabe der OLE DB-Quelle].Columns[Netto-Grundfläche]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Konvertierung"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Netto-Grundfläche]"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Ausgabe der OLE DB-Quelle].Columns[Netto-Grundfläche]"
+                      name="Netto-Grundfläche"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Gruppe]"
+                      dataType="wstr"
+                      length="255"
+                      name="Gruppe" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Schlüssel]"
+                      dataType="wstr"
+                      length="255"
+                      name="Schlüssel" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Beispiele]"
+                      dataType="wstr"
+                      length="255"
+                      name="Beispiele" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Nutzergruppe]"
+                      dataType="wstr"
+                      length="255"
+                      name="Nutzergruppe" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Ausgabe der OLE DB-Quelle].ExternalColumns[Netto-Grundfläche]"
+                      dataType="wstr"
+                      length="255"
+                      name="Netto-Grundfläche" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Fehlerausgabe der OLE DB-Quelle]"
+                  isErrorOut="true"
+                  name="Fehlerausgabe der OLE DB-Quelle">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[ID]"
+                      dataType="i4"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Gruppe]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Gruppe]"
+                      name="Gruppe" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Schlüssel]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Schlüssel]"
+                      name="Schlüssel" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Beispiele]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Beispiele]"
+                      name="Beispiele" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Nutzergruppe]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Nutzergruppe]"
+                      name="Nutzergruppe" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Netto-Grundfläche]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[Netto-Grundfläche]"
+                      name="Netto-Grundfläche" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Usage.Outputs[Fehlerausgabe der OLE DB-Quelle].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Datenflusstask\OLE DB-Ziel 2"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB-Ziel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Alle Rechte vorbehalten; http://www.microsoft.com/sql/support;4"
+              description="OLE DB-Ziel"
+              name="OLE DB-Ziel 2"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Die Anzahl der Sekunden für das Timeout eines Befehls. Der Wert '0' zeigt einen unendlichen Timeoutwert an."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Gibt den Namen des zum Öffnen eines Rowsets verwendeten Datenbankobjekts an."
+                  name="OpenRowset">[dbo].[Rooms]</property>
+                <property
+                  dataType="System.String"
+                  description="Gibt die Variable an, die den Namen des zum Öffnen eines Rowsets verwendeten Datenbankobjekts enthält."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Der auszuführende SQL-Befehl."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Gibt die zu verwendende Spaltencodepage an, wenn keine Codepageinformationen von der Datenquelle verfügbar sind."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Erzwingt die Verwendung des DefaultCodePage-Eigenschaftswerts beim Beschreiben von Zeichendaten."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Gibt den zum Zugreifen auf die Datenbank verwendeten Modus an."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Zeigt an, ob die für Identitätsspalten übergebenen Werte zum Ziel kopiert werden. Bei 'False' werden die Werte für Identitätsspalten am Ziel automatisch generiert. Trifft nur zu, wenn die Option 'Schnelles Laden' aktiviert ist."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Zeigt an, ob für Spalten, die NULL enthalten, NULL am Ziel eingefügt wird. Bei 'False' werden für Spalten, die NULL enthalten, am Ziel die Standardwerte eingefügt. Trifft nur zu, wenn die Option 'Schnelles Laden' aktiviert ist."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Gibt die für die Option 'Schnelles Laden' zu verwendenden Optionen an. Trifft nur zu, wenn die Option 'Schnelles Laden' aktiviert ist."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Gibt an, wann beim Einfügen von Daten Commits ausgegeben werden. Der Wert '0' gibt an, dass ein Commit am Ende des Einfügens von Daten ausgegeben wird. Trifft nur zu, wenn die Option 'Schnelles Laden' aktiviert ist."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Datenflusstask\OLE DB-Ziel 2.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[HTW\SQLEXPRESS.OpenResKit.DomainModel.DomainModelContext]"
+                  connectionManagerRefId="Package.ConnectionManagers[HTW\SQLEXPRESS.OpenResKit.DomainModel.DomainModelContext]"
+                  description="Die für den Zugriff auf die Datenbank verwendete OLE DB-Laufzeitverbindung."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels]"
+                  errorOrTruncationOperation="Einfügen"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Eingabe des OLE DB-Ziels">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels].Columns[Raumnummer]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Raumnummer"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels].ExternalColumns[RoomNumber]"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Raumnummer]" />
+                    <inputColumn
+                      refId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels].Columns[Gebäude]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Gebäude"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels].ExternalColumns[Building]"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Gebäude]" />
+                    <inputColumn
+                      refId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels].Columns[Ebene]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Ebene"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels].ExternalColumns[Level]"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Ebene]" />
+                    <inputColumn
+                      refId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels].Columns[Etage]"
+                      cachedDataType="r8"
+                      cachedName="Etage"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels].ExternalColumns[Floor]"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Etage]" />
+                    <inputColumn
+                      refId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels].Columns[Fläche DIN (m²)]"
+                      cachedDataType="r8"
+                      cachedName="Fläche DIN (m²)"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels].ExternalColumns[Space]"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Fläche DIN (m²)]" />
+                    <inputColumn
+                      refId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels].Columns[Nutzungsart]"
+                      cachedDataType="i4"
+                      cachedName="Nutzungsart"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels].ExternalColumns[RoomInformation_Id]"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Nutzungsart]" />
+                    <inputColumn
+                      refId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels].Columns[Deckenhöhe (Abgehangen)]"
+                      cachedDataType="r8"
+                      cachedName="Deckenhöhe (Abgehangen)"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels].ExternalColumns[Height]"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Deckenhöhe (Abgehangen)]" />
+                    <inputColumn
+                      refId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels].Columns[Fußboden]"
+                      cachedDataType="i4"
+                      cachedName="Fußboden"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels].ExternalColumns[Flooring_Id]"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Fußboden]" />
+                    <inputColumn
+                      refId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels].Columns[Reinigung]"
+                      cachedDataType="i4"
+                      cachedName="Reinigung"
+                      externalMetadataColumnId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels].ExternalColumns[CleaningInterval_Id]"
+                      lineageId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle].Columns[Reinigung]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels].ExternalColumns[RoomNumber]"
+                      dataType="nText"
+                      name="RoomNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels].ExternalColumns[Floor]"
+                      dataType="i4"
+                      name="Floor" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels].ExternalColumns[Level]"
+                      dataType="nText"
+                      name="Level" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels].ExternalColumns[Space]"
+                      dataType="r4"
+                      name="Space" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels].ExternalColumns[Building]"
+                      dataType="nText"
+                      name="Building" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels].ExternalColumns[Height]"
+                      dataType="r4"
+                      name="Height" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels].ExternalColumns[RoomInformation_Id]"
+                      dataType="i4"
+                      name="RoomInformation_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels].ExternalColumns[Flooring_Id]"
+                      dataType="i4"
+                      name="Flooring_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels].ExternalColumns[CleaningInterval_Id]"
+                      dataType="i4"
+                      name="CleaningInterval_Id" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Datenflusstask\OLE DB-Ziel 2.Outputs[Fehlerausgabe des OLE DB-Ziels]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Fehlerausgabe des OLE DB-Ziels"
+                  synchronousInputId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Ziel 2.Outputs[Fehlerausgabe des OLE DB-Ziels].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Datenflusstask\OLE DB-Ziel 2.Outputs[Fehlerausgabe des OLE DB-Ziels].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Datenflusstask\OLE DB-Ziel 2.Outputs[Fehlerausgabe des OLE DB-Ziels].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Datenflusstask\OLE DB-Ziel 2.Outputs[Fehlerausgabe des OLE DB-Ziels].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Datenflusstask.Paths[Ausgabe der OLE DB-Quelle]"
+              endId="Package\Datenflusstask\OLE DB-Ziel 2.Inputs[Eingabe des OLE DB-Ziels]"
+              name="Ausgabe der OLE DB-Quelle"
+              startId="Package\Datenflusstask\OLE DB-Quelle Room.Outputs[Ausgabe der OLE DB-Quelle]" />
+          </paths>
+        </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -70,9 +1334,124 @@
         <NodeLayout
           Size="147,42"
           Id="Package\Datenflusstask"
-          TopLeft="355,158" />
+          TopLeft="134,57" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\Datenflusstask">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Datenflusstask\OLE DB-Quelle Room"
+          TopLeft="97,248" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Datenflusstask\OLE DB-Ziel 2"
+          TopLeft="423,248" />
+        <NodeLayout
+          Size="198,42"
+          Id="Package\Datenflusstask\OLE DB-Quelle Fußböden"
+          TopLeft="117,17" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\Datenflusstask\OLE DB-Quelle Cleaning"
+          TopLeft="113,166" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Datenflusstask\OLE DB-Quelle Usage"
+          TopLeft="117,100" />
+        <EdgeLayout
+          Id="Package\Datenflusstask.Paths[Ausgabe der OLE DB-Quelle]"
+          TopLeft="276,269">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="147,0"
+              Start="0,0"
+              End="139.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="139.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Datenflusstask\OLE DB-Quelle Room">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Datenflusstask\OLE DB-Ziel 2">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Datenflusstask\OLE DB-Quelle Fußböden">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Datenflusstask\OLE DB-Quelle Cleaning">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Datenflusstask\OLE DB-Quelle Usage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
