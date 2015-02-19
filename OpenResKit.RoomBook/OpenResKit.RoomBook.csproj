@@ -90,6 +90,7 @@
     <Compile Include="Cleaning.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="Flooring.cs" />
+    <Compile Include="Migrations\RoomBookMigrations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="RoomUsage.cs" />

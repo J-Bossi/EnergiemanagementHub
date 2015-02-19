@@ -18,7 +18,6 @@ using System.ComponentModel.Composition;
 using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Configuration;
 using OpenResKit.DomainModel;
-using OpenResKit.RoomBook;
 
 
 namespace OpenResKit.Energy
@@ -34,9 +33,13 @@ namespace OpenResKit.Energy
       HasOptional(m => m.MeasureImageSource)
         .WithOptionalPrincipal()
         .WillCascadeOnDelete(true);
-      HasOptional(m => m.Room)
-        .WithMany();
       HasOptional(m => m.Consumer)
+        .WithMany();
+      HasOptional(m => m.ConsumptionActual)
+        .WithMany();
+      HasOptional(m => m.ConsumptionNormative)
+        .WithMany();
+      HasOptional(m => m.Room)
         .WithMany();
     }
 
@@ -95,6 +98,8 @@ namespace OpenResKit.Energy
       HasMany(d => d.Readings)
         .WithOptional()
         .WillCascadeOnDelete(true);
+      HasOptional(c => c.Room)
+  .WithMany();
     }
 
     public void AddConfigurationToModel(ConfigurationRegistrar configuration)
