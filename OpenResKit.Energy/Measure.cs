@@ -42,6 +42,5 @@ namespace OpenResKit.Energy
     public virtual string Reference { get; set; }
     public Reading ConsumptionActual { get; set; }
     public Reading ConsumptionNormative { get; set; }
-    public Room Room { get; set; }
   }
 }

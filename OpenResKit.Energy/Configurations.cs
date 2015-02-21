@@ -39,8 +39,6 @@ namespace OpenResKit.Energy
         .WithMany();
       HasOptional(m => m.ConsumptionNormative)
         .WithMany();
-      HasOptional(m => m.Room)
-        .WithMany();
     }
 
     public void AddConfigurationToModel(ConfigurationRegistrar configurations)
