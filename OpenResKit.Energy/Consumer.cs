@@ -26,8 +26,8 @@ namespace OpenResKit.Energy
     public virtual bool IsMachine { get; set; }
     public virtual string Identifier { get; set; } //GER_BEZ
     public int? Year { get; set; } //GER_BAUJ
-    public virtual long? PowerOutput { get; set; } //GERAETE_EIG_KW
-    public virtual long? PowerCurrent { get; set; } //GERAETE_EIG_AMPERE
+    public virtual double? PowerOutput { get; set; } //GERAETE_EIG_KW
+    public virtual double? PowerCurrent { get; set; } //GERAETE_EIG_AMPERE
     public virtual ICollection<Reading> Readings { get; set; }
     public virtual Room Room { get; set; }
     public virtual Distributor Distributor { get; set; }
